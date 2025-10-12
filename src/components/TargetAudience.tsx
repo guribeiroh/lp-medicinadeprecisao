@@ -1,0 +1,114 @@
+import { motion } from "motion/react";
+import { CheckCircle2, Sparkles } from "lucide-react";
+
+export function TargetAudience() {
+  const audience = [
+    {
+      title: "Querem aumentar o faturamento",
+      description: "Sem depender de plantões intermináveis"
+    },
+    {
+      title: "Desejam construir autoridade",
+      description: "E reconhecimento real no mercado"
+    },
+    {
+      title: "Buscam clareza estratégica",
+      description: "Para crescer de forma sustentável e previsível"
+    },
+    {
+      title: "Estão prontos para unir",
+      description: "Propósito, técnica e gestão inteligente"
+    },
+    {
+      title: "Acreditam que medicina e liberdade",
+      description: "Podem e devem andar juntas"
+    }
+  ];
+
+  return (
+    <section className="py-24 lg:py-32 bg-gradient-to-b from-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
+      {/* Background Decoration */}
+      <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-bl from-[#3b82f6]/5 to-transparent rounded-full blur-3xl -translate-y-1/2" />
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16 space-y-6"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#2563eb]/10 text-[#3b82f6] rounded-full border border-[#2563eb]/20 backdrop-blur-sm">
+              <Sparkles className="w-4 h-4" />
+              <span className="text-sm font-medium">Pra quem é</span>
+            </div>
+
+            <h2 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight tracking-tight">
+              PARA QUEM É
+            </h2>
+            <p className="text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto">
+              Esse treinamento é para médicos que:
+            </p>
+          </motion.div>
+
+          <div className="grid gap-4 mb-12">
+            {audience.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative"
+              >
+                {/* Gradient border effect - padrão Testimonials */}
+                <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                
+                <div className="relative bg-gradient-to-br from-white/[0.07] to-white/[0.02] backdrop-blur-xl rounded-2xl p-6 lg:p-8 border border-white/10 hover:border-white/20 transition-all duration-300 group-hover:shadow-2xl">
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0">
+                      <div className="relative inline-block">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity" />
+                        <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          <CheckCircle2 className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2.5} />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex-1 space-y-1">
+                      <h3 className="text-lg lg:text-xl font-semibold text-white transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-base text-gray-400 group-hover:text-gray-300 leading-relaxed transition-colors">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            className="text-center"
+          >
+            <div className="relative inline-block">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/20 to-[#3b82f6]/20 blur-2xl" />
+              <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl px-8 py-6 border border-white/10 shadow-2xl">
+                <p className="text-lg lg:text-xl text-gray-300 max-w-2xl">
+                  Se você se identificou com pelo menos um desses pontos, 
+                  <span className="text-[#3b82f6] font-semibold"> este evento foi feito para você</span>.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
