@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Calendar, MapPin, Users, Coffee, Wine, Sparkles, Star, Clock, Building2 } from "lucide-react";
+import { Calendar, MapPin, Users, Coffee, Wine, Sparkles, Star, Clock, Building2, Award } from "lucide-react";
 
 export function Experience() {
   const experienceItems = [
@@ -7,6 +7,11 @@ export function Experience() {
       icon: Users,
       title: "Networking Exclusivo",
       description: "Conecte-se com 50 médicos seletos de diferentes especialidades"
+    },
+    {
+      icon: Award,
+      title: "Certificado de Participação",
+      description: "Certificado oficial de 20 horas de conteúdo técnico e prático"
     },
     {
       icon: Clock,
