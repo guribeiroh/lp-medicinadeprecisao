@@ -10,10 +10,22 @@ interface HeroProps {
 
 export function Hero({ onCTAClick }: HeroProps) {
   const bullets = [
-    "Estruturar seu consultório com visão de empresa e crescimento previsível.",
-    "Criar protocolos clínicos de alto valor percebido que elevam seus resultados e autoridade.",
-    "Promover longevidade e performance em seus pacientes com ciência, propósito e precisão",
-    "Precificar, posicionar e comunicar seu valor com segurança construindo autoridade e liberdade.",
+    {
+      text: "com visão de empresa e crescimento previsível.",
+      highlight: "Estruturar seu consultório"
+    },
+    {
+      text: "de alto valor percebido que elevam seus resultados e autoridade.",
+      highlight: "Criar protocolos clínicos"
+    },
+    {
+      text: "em seus pacientes com ciência, propósito e precisão",
+      highlight: "Promover longevidade e performance"
+    },
+    {
+      text: "seu valor com segurança construindo autoridade e liberdade.",
+      highlight: "Precificar, posicionar e comunicar"
+    },
   ]
 
   const visibleBullets = bullets // Mostra todos os 4 bullets
@@ -80,7 +92,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                   <AnimatePresence mode="sync">
                     {visibleBullets.map((item, index) => (
                       <motion.div
-                        key={item}
+                        key={index}
                         initial={{ opacity: 0, height: 0, y: -10 }}
                         animate={{ opacity: 1, height: "auto", y: 0 }}
                         exit={{ opacity: 0, height: 0, y: -10 }}
@@ -92,7 +104,9 @@ export function Hero({ onCTAClick }: HeroProps) {
                         className="flex items-start gap-2 group overflow-hidden"
                       >
                         <CheckCircle2 className="w-4 h-4 text-[#3b82f6] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                        <p className="text-sm md:text-base text-gray-300 leading-relaxed">{item}</p>
+                        <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                          <span className="text-white font-semibold">{item.highlight}</span> {item.text}
+                        </p>
                       </motion.div>
                     ))}
                   </AnimatePresence>
