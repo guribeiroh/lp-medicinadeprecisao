@@ -7,7 +7,7 @@ export function Founders() {
       initial: 'A', 
       name: 'Arthur Melo e Marques',
       image: '/dr-arthur.jpg',
-      title: 'CEO | Engenheiro Civil',
+      title: 'CEO | Engenheiro',
       description: 'Fundador do Grupo AID e CEO do Grupo CONAES Brasil de Educação Médica. Pioneiro na integração entre engenharia e medicina, lidera a revolução da educação médica no país através de soluções inovadoras que equipam profissionais de saúde com competência, ética e humanidade.',
       instagram: 'https://www.instagram.com/arthurmelo__'
     },
@@ -15,7 +15,7 @@ export function Founders() {
       initial: 'J', 
       name: 'Dr. João Paulo Cristofolo',
       image: '/dr-joao.jpg',
-      title: 'Médico | Professor',
+      title: 'Médico | Fundador do Conaes Brasil',
       description: 'Especialista em saúde mental e bem-estar, professor da Pós-Graduação em Medicina Endocanabinoide do CONAES Brasil. Integra neurociência e medicina para oferecer tratamentos personalizados, democratizando o acesso a terapias que promovem equilíbrio emocional e físico com ética e dedicação.',
       instagram: 'https://www.instagram.com/doutorjoao'
     }

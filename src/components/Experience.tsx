@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
-import { Calendar, MapPin, Users, Coffee, Wine, Sparkles, Star, Clock, Building2, Utensils } from "lucide-react";
+import { Calendar, MapPin, Users, Coffee, Wine, Sparkles, Star, Clock, Building2 } from "lucide-react";
 
 export function Experience() {
   const experienceItems = [
     {
       icon: Users,
       title: "Networking Exclusivo",
-      description: "Conecte-se com 80 médicos seletos de diferentes especialidades"
+      description: "Conecte-se com 50 médicos seletos de diferentes especialidades"
     },
     {
       icon: Clock,
@@ -17,11 +17,6 @@ export function Experience() {
       icon: Coffee,
       title: "Coffee Breaks Premium",
       description: "Manhã e tarde para recarregar e fazer conexões valiosas"
-    },
-    {
-      icon: Utensils,
-      title: "Almoço Completo",
-      description: "Refeições de qualidade incluídas nos dois dias"
     },
     {
       icon: Wine,
@@ -116,7 +111,7 @@ export function Experience() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">80 Vagas Exclusivas</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">50 Vagas Exclusivas</h4>
                   <p className="text-sm md:text-base text-gray-400 group-hover:text-gray-300 transition-colors">Apenas médicos seletos</p>
                 </div>
               </div>
@@ -140,7 +135,8 @@ export function Experience() {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
+              {/* Wrapper para centralizar o último item quando ímpar */}
               {experienceItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -150,7 +146,7 @@ export function Experience() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.4 + (index * 0.05) }}
-                    className="group relative"
+                    className={`group relative ${index === experienceItems.length - 1 && experienceItems.length % 2 !== 0 ? 'sm:col-span-2 sm:max-w-md sm:mx-auto sm:w-full' : ''}`}
                   >
                     {/* Gradient border on hover - padrão Testimonials */}
                     <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
@@ -191,7 +187,7 @@ export function Experience() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#2563eb]/10 to-[#3b82f6]/10 rounded-2xl md:rounded-3xl blur-xl" />
             <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 shadow-2xl">
               <p className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed text-center italic">
-                Você não vai apenas assistir a um evento — <span className="text-[#3b82f6] font-semibold not-italic">vai viver uma imersão</span> que vai reacender o motivo pelo qual escolheu ser médico. Um espaço moderno, confortável e instagramável, preparado para receber apenas <span className="text-[#f59e0b] font-semibold not-italic">80 médicos seletos</span>, como você.
+                Você não vai apenas assistir a um evento — <span className="text-[#3b82f6] font-semibold not-italic">vai viver uma imersão</span> que vai reacender o motivo pelo qual escolheu ser médico. Um espaço moderno, confortável e instagramável, preparado para receber apenas <span className="text-[#f59e0b] font-semibold not-italic">50 médicos seletos</span>, como você.
               </p>
             </div>
           </motion.div>

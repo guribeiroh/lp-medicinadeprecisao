@@ -1,5 +1,6 @@
 "use client"
 
+import { VacancyProgress } from "./components/VacancyProgress"
 import { Hero } from "./components/Hero"
 import { PainPoints } from "./components/PainPoints"
 import { WhatIs } from "./components/WhatIs"
@@ -21,6 +22,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0a0f1a]">
+      <VacancyProgress />
       <Hero onCTAClick={scrollToCTA} />
       <PainPoints />
       <WhatIs onCTAClick={scrollToCTA} />
