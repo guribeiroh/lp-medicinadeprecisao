@@ -13,12 +13,10 @@ export function Hero({ onCTAClick }: HeroProps) {
   const [showAllBullets, setShowAllBullets] = useState(false)
 
   const bullets = [
-    "Estruturar seu consultório com visão de empresa",
-    "Criar protocolos clínicos de alto valor percebido",
-    "Dominar laser, tecnologias avançadas e cannabis medicinal",
-    "Precificar e comunicar seu valor com segurança",
-    "Escalar sem depender de plantões ou planos de saúde",
-    "Desenvolver mentalidade de dono da própria carreira",
+    "Estruturar seu consultório com visão de empresa e crescimento previsível.",
+    "Criar protocolos clínicos de alto valor percebido que elevam seus resultados e autoridade.",
+    "Promover longevidade e performance em seus pacientes com ciência, propósito e precisão",
+    "Precificar, posicionar e comunicar seu valor com segurança construindo autoridade e liberdade.",
   ]
 
   const visibleBullets = showAllBullets ? bullets : bullets.slice(0, 3)
