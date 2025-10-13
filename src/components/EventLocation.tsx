@@ -1,15 +1,53 @@
 import { motion } from "motion/react"
-import { MapPin, Navigation, Building, ExternalLink } from "lucide-react"
+import { MapPin, Navigation, Building, ExternalLink, Hotel, Car, PersonStanding } from "lucide-react"
 
 export function EventLocation() {
   const address = {
-    street: "Av. Sagitário, 138 - Loja 72 1° andar",
+    street: "Casa do Storytelling",
     neighborhood: "Alphaville Conde II",
     city: "Alphaville - SP",
     cep: "06473-073",
-    mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Sagitário,+138+-+Alphaville+Conde+II,+Barueri+-+SP",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0977540168817!2d-46.85594532377471!3d-23.508637178789154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03c0e3b07d4f%3A0x7e6e24d5e2b3f8e!2sAv.%20Sagit%C3%A1rio%2C%20138%20-%20Alphaville%20Conde%20II%2C%20Barueri%20-%20SP%2C%2006473-073!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr"
+    mapUrl: "https://www.google.com/maps/place/Casa+do+Storytelling/@-23.5086372,-46.8559453,17z/data=!4m2!3m1!1s0x0:0xc99e1573dfc77cbf?sa=X&ved=1t:2428&ictx=111",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0977540168817!2d-46.8559453!3d-23.5086372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc99e1573dfc77cbf!2sCasa%20do%20Storytelling!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr"
   }
+
+  // ⚠️ ATENÇÃO: ATUALIZAR COM DADOS REAIS DO GOOGLE MAPS
+  // Para obter as distâncias reais:
+  // 1. Acesse: https://www.google.com/maps
+  // 2. Digite: "De [NOME_DO_HOTEL] para Casa do Storytelling, Alphaville"
+  // 3. Veja o tempo de carro e a pé
+  // 4. Atualize os valores abaixo
+  
+  const nearbyHotels = [
+    {
+      name: "Blue Tree Premium Alphaville",
+      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
+      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      category: "4 estrelas",
+      mapUrl: "https://www.google.com/maps/dir/Blue+Tree+Premium+Alphaville/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "Comfort Hotel Alphaville",
+      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
+      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      category: "3 estrelas",
+      mapUrl: "https://www.google.com/maps/dir/Comfort+Hotel+Alphaville/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "Quality Suites Alphaville",
+      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
+      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      category: "4 estrelas",
+      mapUrl: "https://www.google.com/maps/dir/Quality+Suites+Alphaville/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "Transamerica Executive Jaraguá",
+      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
+      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      category: "3 estrelas",
+      mapUrl: "https://www.google.com/maps/dir/Transamerica+Executive+Jaraguá/Casa+do+Storytelling,+Alphaville"
+    }
+  ]
 
   return (
     <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#0a0f1a] to-[#0d1219] relative overflow-hidden">
@@ -140,6 +178,10 @@ export function EventLocation() {
                       <div className="w-2 h-2 rounded-full bg-[#10b981] flex-shrink-0"></div>
                       <span className="text-sm md:text-base text-gray-300">Ambiente climatizado</span>
                     </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#f59e0b] flex-shrink-0"></div>
+                      <span className="text-sm md:text-base text-gray-300">Hotéis próximos disponíveis</span>
+                    </div>
                   </div>
 
                   {/* Call to Action */}
@@ -177,6 +219,115 @@ export function EventLocation() {
                 </div>
               </div>
             </div>
+          </motion.div>
+
+          {/* Hotéis Próximos */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-12 md:mt-16"
+          >
+            <div className="text-center mb-8 md:mb-10">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#f59e0b]/10 text-[#fbbf24] rounded-full border border-[#f59e0b]/20 backdrop-blur-sm mb-4">
+                <Hotel className="w-4 h-4" />
+                <span className="text-sm font-medium">Hospedagem</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3">
+                Hotéis Próximos ao Evento
+              </h3>
+              <p className="text-base md:text-lg text-gray-400 max-w-2xl mx-auto">
+                Opções de hospedagem perto do local do evento para sua comodidade
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+              {nearbyHotels.map((hotel, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 + (index * 0.1) }}
+                  className="group relative"
+                >
+                  <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                  
+                  <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.02] backdrop-blur-xl rounded-2xl p-5 md:p-6 border border-white/10 hover:border-white/20 transition-all group-hover:shadow-2xl h-full flex flex-col">
+                    {/* Hotel Icon */}
+                    <div className="relative inline-block mb-4">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#f59e0b] to-[#fbbf24] rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity" />
+                      <div className="relative w-12 h-12 bg-gradient-to-br from-[#f59e0b] to-[#fbbf24] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <Hotel className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+
+                    {/* Hotel Info */}
+                    <div className="flex-1 mb-4">
+                      <h4 className="text-base md:text-lg font-bold text-white mb-3 leading-tight">
+                        {hotel.name}
+                      </h4>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-gray-300">
+                          <Car className="w-4 h-4 text-[#3b82f6] flex-shrink-0" />
+                          <span>{hotel.distanceDriving}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-xs md:text-sm text-gray-300">
+                          <PersonStanding className="w-4 h-4 text-[#10b981] flex-shrink-0" />
+                          <span>{hotel.distanceWalking}</span>
+                        </div>
+                        <p className="text-sm text-[#fbbf24] flex items-center gap-1">
+                          ⭐ {hotel.category}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* View Button */}
+                    <a
+                      href={hotel.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#f59e0b]/50 rounded-lg text-sm text-gray-300 hover:text-white transition-all group-hover:shadow-lg"
+                    >
+                      <MapPin className="w-4 h-4" />
+                      <span>Ver no mapa</span>
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Legend */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+              className="mt-6 flex flex-wrap items-center justify-center gap-4 md:gap-6"
+            >
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <Car className="w-4 h-4 text-[#3b82f6]" />
+                <span>De carro</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-gray-400">
+                <PersonStanding className="w-4 h-4 text-[#10b981]" />
+                <span>A pé</span>
+              </div>
+            </motion.div>
+
+            {/* Additional Info */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 1 }}
+              className="mt-6 text-center"
+            >
+              <p className="text-sm md:text-base text-gray-400">
+                💡 <span className="text-gray-300">Dica:</span> Reserve sua hospedagem com antecedência para garantir as melhores tarifas
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

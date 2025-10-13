@@ -19,6 +19,10 @@ yarn-error.log*
 # env files
 .env*
 
+# API generated files
+hotel-distances.json
+scripts/hotel-distances.json
+
 # vercel
 .vercel
 
