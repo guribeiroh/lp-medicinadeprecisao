@@ -105,7 +105,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                       >
                         <CheckCircle2 className="w-4 h-4 text-[#3b82f6] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
                         <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                          <span className="text-white font-semibold">{item.highlight}</span> {item.text}
+                          <span className="text-[#f59e0b] font-semibold">{item.highlight}</span> {item.text}
                         </p>
                       </motion.div>
                     ))}
