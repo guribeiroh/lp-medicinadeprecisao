@@ -16,7 +16,7 @@ export function Founders() {
       name: 'Dr. João Paulo Cristofolo',
       image: '/dr-joao.jpg',
       title: 'Médico | Fundador do Conaes Brasil',
-      description: 'Especialista em saúde mental e bem-estar, professor da Pós-Graduação em Medicina Endocanabinoide do CONAES Brasil. Integra neurociência e medicina para oferecer tratamentos personalizados, democratizando o acesso a terapias que promovem equilíbrio emocional e físico com ética e dedicação.',
+      description: 'Médico, palestrante, fundador do Grupo CONAES Brasil e professor da Pós-Graduação em Medicina Endocanabinoide do CONAES Brasil. Integra neurociência e medicina para oferecer tratamentos personalizados, democratizando o acesso a terapias que promovem equilíbrio emocional e físico com ética e dedicação.',
       instagram: 'https://www.instagram.com/doutorjoao'
     }
   ];

@@ -66,10 +66,10 @@ export function VacancyProgress() {
               </div>
               <div className="text-center sm:text-left">
                 <p className="text-xs sm:text-sm font-bold text-white">
-                  {percentage}% das vagas preenchidas
+                  {percentage}% dos ingressos preenchidos
                 </p>
                 <p className="text-[10px] sm:text-xs text-gray-400">
-                  Restam apenas <span className="text-[#f59e0b] font-semibold">{vacanciesRemaining} vagas</span>
+                  Restam apenas <span className="text-[#f59e0b] font-semibold">{vacanciesRemaining} ingressos</span>
                 </p>
               </div>
             </div>
@@ -125,7 +125,7 @@ export function VacancyProgress() {
                 className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white text-xs sm:text-sm font-semibold rounded-full shadow-lg shadow-[#2563eb]/30 transition-all"
               >
                 <Users className="w-4 h-4" />
-                Garantir Vaga
+                Garantir Ingresso
               </motion.button>
             </a>
           </div>
@@ -142,7 +142,7 @@ export function VacancyProgress() {
               className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white text-sm font-semibold rounded-full shadow-lg"
             >
               <Users className="w-4 h-4" />
-              Garantir Minha Vaga
+              Garantir Meu Ingresso
             </motion.button>
           </a>
         </div>

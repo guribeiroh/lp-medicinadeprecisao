@@ -78,12 +78,12 @@ export function FinalCTA() {
                 <div className="flex justify-center">
                   <Badge className="bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white px-5 py-2.5 text-sm border-0 shadow-lg">
                     <Zap className="w-4 h-4 mr-2" />
-                    VAGAS LIMITADAS
+                    INGRESSOS LIMITADOS
                   </Badge>
                 </div>
 
                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white leading-tight">
-                  As vagas são limitadas e exclusivas a <span className="text-[#3b82f6]">50 médicos</span>
+                  Os ingressos são limitados e exclusivos a <span className="text-[#3b82f6]">50 médicos</span>
                 </h3>
 
                 <p className="text-base md:text-lg lg:text-xl text-white/80">
@@ -94,7 +94,7 @@ export function FinalCTA() {
               {/* Info Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
                 {[
-                  { icon: Users, text: "Apenas 50 vagas" },
+                  { icon: Users, text: "Apenas 50 ingressos" },
                   { icon: Clock, text: "20 e 21 de Novembro" },
                   { icon: MapPin, text: "Alphaville, Barueri/SP" },
                 ].map((item, index) => {

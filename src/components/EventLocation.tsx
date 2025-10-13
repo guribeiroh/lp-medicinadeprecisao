@@ -33,11 +33,40 @@ export function EventLocation() {
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight tracking-tight px-4">
-              ONDE ACONTECE
+              ONDE IRÁ ACONTECER
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto px-4">
-              Um espaço premium no coração de <span className="text-[#f59e0b] font-semibold">Alphaville</span>
+              Conheça o espaço premium no coração de <span className="text-[#f59e0b] font-semibold">Alphaville</span>
             </p>
+          </motion.div>
+
+          {/* Video Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12 md:mb-16 max-w-4xl mx-auto"
+          >
+            <div className="group relative">
+              <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+              
+              <div className="relative">
+                <div className="aspect-video bg-white/5 backdrop-blur-sm rounded-2xl md:rounded-3xl border border-white/10 overflow-hidden hover:border-white/20 transition-all group-hover:shadow-2xl">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/r1kLL13B9DU?controls=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&vq=hd1080"
+                    title="Espaço do Evento"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="mt-6 text-center">
+                  <h4 className="text-xl text-white mb-2">Espaço do Evento</h4>
+                  <p className="text-base text-gray-400">Conheça onde acontecerá a imersão</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Location Card */}
@@ -45,7 +74,7 @@ export function EventLocation() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="relative"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-[#f59e0b]/20 via-[#2563eb]/20 to-[#3b82f6]/20 rounded-2xl md:rounded-3xl blur-2xl opacity-50" />

@@ -111,7 +111,7 @@ export function Experience() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">50 Vagas Exclusivas</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">50 Ingressos Exclusivos</h4>
                   <p className="text-sm md:text-base text-gray-400 group-hover:text-gray-300 transition-colors">Apenas médicos seletos</p>
                 </div>
               </div>

@@ -60,7 +60,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3b82f6] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#3b82f6]"></span>
                 </span>
-                <span className="text-sm font-medium text-white/90 tracking-wide">Apenas 50 Vagas Disponíveis</span>
+                <span className="text-sm font-medium text-white/90 tracking-wide">Apenas para 50 Médicos</span>
               </div>
             </motion.div>
 
@@ -170,7 +170,7 @@ export function Hero({ onCTAClick }: HeroProps) {
             >
               {[
                 { value: "2 Dias", label: "Imersão Total" },
-                { value: "50 Vagas", label: "Limitadas" },
+                { value: "50 Ingressos", label: "Limitados" },
                 { value: "+16h", label: "Conteúdo" },
               ].map((stat, index) => (
                 <div key={index} className="space-y-0.5">

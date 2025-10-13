@@ -8,11 +8,10 @@ import { TargetAudience } from "./components/TargetAudience"
 import { Experience } from "./components/Experience"
 import { Founders } from "./components/Founders"
 import { Testimonials } from "./components/Testimonials"
-import { EventGallery } from "./components/EventGallery"
-import { ContentMap } from "./components/ContentMap"
 import { EventLocation } from "./components/EventLocation"
 import { FinalCTA } from "./components/FinalCTA"
 import { Footer } from "./components/Footer"
+import { WhatsAppFloat } from "./components/WhatsAppFloat"
 
 export default function App() {
   const scrollToCTA = () => {
@@ -30,11 +29,10 @@ export default function App() {
       <Experience />
       <Founders />
       <Testimonials />
-      <EventGallery />
-      <ContentMap onCTAClick={scrollToCTA} />
       <EventLocation />
       <FinalCTA />
       <Footer />
+      <WhatsAppFloat />
     </div>
   )
 }
