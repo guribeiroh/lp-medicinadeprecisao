@@ -9,6 +9,7 @@ import { Experience } from "./components/Experience"
 import { Founders } from "./components/Founders"
 import { Testimonials } from "./components/Testimonials"
 import { EventLocation } from "./components/EventLocation"
+import { Supporters } from "./components/Supporters"
 import { FinalCTA } from "./components/FinalCTA"
 import { Footer } from "./components/Footer"
 import { WhatsAppFloat } from "./components/WhatsAppFloat"
@@ -30,6 +31,7 @@ export default function App() {
       <Founders />
       <Testimonials />
       <EventLocation />
+      <Supporters />
       <FinalCTA />
       <Footer />
       <WhatsAppFloat />
