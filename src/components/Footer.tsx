@@ -46,7 +46,7 @@ export function Footer() {
             {/* Additional Info */}
             <div className="pt-8 border-t border-white/10">
               <p className="text-sm text-white/50">
-                20 e 21 de Novembro de 2025 • Alpha Square Mall, Barueri/SP
+                20 e 21 de Novembro de 2025 • Alpha Square Mall, Alphaville/SP
               </p>
             </div>
           </div>

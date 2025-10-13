@@ -10,7 +10,7 @@ export default function ThankYouPage() {
     date: "20 e 21 de Novembro de 2025",
     time: "8h às 18h",
     location: "Av. Sagitário, 138 - Loja 72 1° andar",
-    neighborhood: "Alphaville Conde II, Barueri - SP",
+    neighborhood: "Alphaville Conde II, Alphaville - SP",
     cep: "06473-073",
     whatsappSupport: "5537999744337", // +55 37 9997-4337
   }
@@ -21,7 +21,7 @@ export default function ThankYouPage() {
     const endDate = "20251121T180000"
     const title = encodeURIComponent("Medicina de Precisão - Imersão")
     const details = encodeURIComponent("Evento Medicina de Precisão - Transforme sua carreira médica")
-    const location = encodeURIComponent("Av. Sagitário, 138 - Alphaville Conde II, Barueri - SP")
+    const location = encodeURIComponent("Av. Sagitário, 138 - Alphaville Conde II, Alphaville - SP")
     
     const googleCalendarUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startDate}/${endDate}&details=${details}&location=${location}&sf=true&output=xml`
     

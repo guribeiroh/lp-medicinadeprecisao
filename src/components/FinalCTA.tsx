@@ -96,7 +96,7 @@ export function FinalCTA() {
                 {[
                   { icon: Users, text: "Apenas 50 ingressos" },
                   { icon: Clock, text: "20 e 21 de Novembro" },
-                  { icon: MapPin, text: "Alphaville, Barueri/SP" },
+                  { icon: MapPin, text: "Alphaville/SP" },
                 ].map((item, index) => {
                   const Icon = item.icon
                   return (

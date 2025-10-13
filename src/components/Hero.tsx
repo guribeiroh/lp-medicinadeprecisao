@@ -134,7 +134,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                 <div className="flex items-center justify-center w-8 h-8 bg-white/5 rounded-xl border border-white/10">
                   <MapPin className="w-4 h-4 text-[#3b82f6]" />
                 </div>
-                <span className="font-medium">Barueri/SP</span>
+                <span className="font-medium">Alphaville/SP</span>
               </div>
             </motion.div>
 

@@ -5,7 +5,7 @@ export function EventLocation() {
   const address = {
     street: "Av. Sagitário, 138 - Loja 72 1° andar",
     neighborhood: "Alphaville Conde II",
-    city: "Barueri - SP",
+    city: "Alphaville - SP",
     cep: "06473-073",
     mapUrl: "https://www.google.com/maps/search/?api=1&query=Av.+Sagitário,+138+-+Alphaville+Conde+II,+Barueri+-+SP",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0977540168817!2d-46.85594532377471!3d-23.508637178789154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03c0e3b07d4f%3A0x7e6e24d5e2b3f8e!2sAv.%20Sagit%C3%A1rio%2C%20138%20-%20Alphaville%20Conde%20II%2C%20Barueri%20-%20SP%2C%2006473-073!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr"
