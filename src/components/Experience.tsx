@@ -10,7 +10,7 @@ export function Experience() {
     },
     {
       icon: Clock,
-      title: "+16h de Conteúdo",
+      title: "+20h de Conteúdo",
       description: "Dois dias completos de aprendizado prático e aplicável"
     },
     {
