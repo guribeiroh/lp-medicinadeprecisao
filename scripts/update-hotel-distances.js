@@ -22,27 +22,35 @@ const eventLocation = {
 const hotels = [
   {
     name: 'Blue Tree Premium Alphaville',
-    searchQuery: 'Blue Tree Premium, Alameda Rio Negro, Alphaville, Barueri, São Paulo',
-    coords: { lat: -23.4957, lon: -46.8495 }, // Coordenadas aproximadas
-    category: '4 estrelas'
+    address: 'Av. Marcos Penteado de Ulhôa Rodrigues, 939',
+    searchQuery: 'Av. Marcos Penteado de Ulhôa Rodrigues, 939, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4957, lon: -46.8495 },
+    category: '4 estrelas',
+    amenities: 'Café da manhã incluso'
   },
   {
-    name: 'Comfort Hotel Alphaville',
-    searchQuery: 'Comfort Hotel, Alphaville Industrial, Barueri, São Paulo',
-    coords: { lat: -23.4989, lon: -46.8563 }, // Coordenadas aproximadas
-    category: '3 estrelas'
+    name: 'Radisson Hotel Alphaville',
+    address: 'Alameda Rio Negro, 1030',
+    searchQuery: 'Alameda Rio Negro, 1030, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4972, lon: -46.8503 },
+    category: '4 estrelas',
+    amenities: 'Opção business'
   },
   {
-    name: 'Quality Suites Alphaville',
-    searchQuery: 'Quality Suites, Alameda Araguaia, Alphaville, Barueri, São Paulo',
-    coords: { lat: -23.4932, lon: -46.8501 }, // Coordenadas aproximadas
-    category: '4 estrelas'
+    name: 'Comfort Suites Alphaville',
+    address: 'Alameda Rio Negro, 333',
+    searchQuery: 'Alameda Rio Negro, 333, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4989, lon: -46.8563 },
+    category: '4 estrelas',
+    amenities: 'Excelente custo-benefício'
   },
   {
-    name: 'Transamerica Executive Jaraguá',
-    searchQuery: 'Transamerica Executive, Alphaville Centro Industrial, Barueri, São Paulo',
-    coords: { lat: -23.5134, lon: -46.8656 }, // Coordenadas aproximadas
-    category: '3 estrelas'
+    name: 'HB Hotels Sequoia Alphaville',
+    address: 'Alameda Madeira, 292',
+    searchQuery: 'Alameda Madeira, 292, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4945, lon: -46.8489 },
+    category: '4 estrelas',
+    amenities: 'Academia e restaurante no local'
   }
 ];
 
@@ -167,9 +175,11 @@ async function updateHotelDistances() {
     if (driving && walking) {
       const result = {
         name: hotel.name,
+        address: hotel.address,
         distanceDriving: driving.formatted,
         distanceWalking: walking.formatted,
-        category: hotel.category
+        category: hotel.category,
+        amenities: hotel.amenities
       };
       
       results.push(result);
@@ -195,10 +205,12 @@ async function updateHotelDistances() {
   results.forEach((hotel, index) => {
     console.log(`  {`);
     console.log(`    name: "${hotel.name}",`);
+    console.log(`    address: "${hotel.address}",`);
     console.log(`    distanceDriving: "${hotel.distanceDriving}",`);
     console.log(`    distanceWalking: "${hotel.distanceWalking}",`);
     console.log(`    category: "${hotel.category}",`);
-    console.log(`    mapUrl: "https://www.google.com/maps/dir/${encodeURIComponent(hotel.name)}/Casa+do+Storytelling,+Alphaville"`);
+    console.log(`    amenities: "${hotel.amenities}",`);
+    console.log(`    mapUrl: "https://www.google.com/maps/dir/${encodeURIComponent(hotel.name + ' ' + hotel.address)}/Casa+do+Storytelling,+Alphaville"`);
     console.log(`  }${index < results.length - 1 ? ',' : ''}`);
   });
   

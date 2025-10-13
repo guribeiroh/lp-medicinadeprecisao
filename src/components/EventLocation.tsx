@@ -17,31 +17,39 @@ export function EventLocation() {
   const nearbyHotels = [
     {
       name: "Blue Tree Premium Alphaville",
+      address: "Av. Marcos Penteado de Ulhôa Rodrigues, 939",
+      distanceDriving: "4 min (3.2 km)",
+      distanceWalking: "38 min (3.2 km)",
+      category: "4 estrelas",
+      amenities: "Café da manhã incluso",
+      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Premium%20Alphaville%20Av.%20Marcos%20Penteado%20de%20Ulh%C3%B4a%20Rodrigues%2C%20939/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "Radisson Hotel Alphaville",
+      address: "Alameda Rio Negro, 1030",
+      distanceDriving: "4 min (3.2 km)",
+      distanceWalking: "38 min (3.2 km)",
+      category: "4 estrelas",
+      amenities: "Opção business",
+      mapUrl: "https://www.google.com/maps/dir/Radisson%20Hotel%20Alphaville%20Alameda%20Rio%20Negro%2C%201030/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "Comfort Suites Alphaville",
+      address: "Alameda Rio Negro, 333",
+      distanceDriving: "4 min (2.9 km)",
+      distanceWalking: "35 min (2.9 km)",
+      category: "4 estrelas",
+      amenities: "Excelente custo-benefício",
+      mapUrl: "https://www.google.com/maps/dir/Comfort%20Suites%20Alphaville%20Alameda%20Rio%20Negro%2C%20333/Casa+do+Storytelling,+Alphaville"
+    },
+    {
+      name: "HB Hotels Sequoia Alphaville",
+      address: "Alameda Madeira, 292",
       distanceDriving: "4 min (2.7 km)",
       distanceWalking: "32 min (2.7 km)",
       category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Premium%20Alphaville/Casa+do+Storytelling,+Alphaville"
-    },
-    {
-      name: "Comfort Hotel Alphaville",
-      distanceDriving: "3 min (2.0 km)",
-      distanceWalking: "24 min (2.0 km)",
-      category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Comfort%20Hotel%20Alphaville/Casa+do+Storytelling,+Alphaville"
-    },
-    {
-      name: "Quality Suites Alphaville",
-      distanceDriving: "4 min (2.8 km)",
-      distanceWalking: "34 min (2.8 km)",
-      category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Quality%20Suites%20Alphaville/Casa+do+Storytelling,+Alphaville"
-    },
-    {
-      name: "Transamerica Executive Jaraguá",
-      distanceDriving: "4 min (2.5 km)",
-      distanceWalking: "30 min (2.5 km)",
-      category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Transamerica%20Executive%20Jaragu%C3%A1/Casa+do+Storytelling,+Alphaville"
+      amenities: "Academia e restaurante no local",
+      mapUrl: "https://www.google.com/maps/dir/HB%20Hotels%20Sequoia%20Alphaville%20Alameda%20Madeira%2C%20292/Casa+do+Storytelling,+Alphaville"
     }
   ]
 
@@ -261,9 +269,12 @@ export function EventLocation() {
 
                     {/* Hotel Info */}
                     <div className="flex-1 mb-4">
-                      <h4 className="text-base md:text-lg font-bold text-white mb-3 leading-tight">
+                      <h4 className="text-base md:text-lg font-bold text-white mb-2 leading-tight">
                         {hotel.name}
                       </h4>
+                      <p className="text-xs md:text-sm text-gray-400 mb-3">
+                        📍 {hotel.address}
+                      </p>
                       <div className="space-y-2">
                         <div className="flex items-center gap-2 text-xs md:text-sm text-gray-300">
                           <Car className="w-4 h-4 text-[#3b82f6] flex-shrink-0" />
@@ -275,6 +286,9 @@ export function EventLocation() {
                         </div>
                         <p className="text-sm text-[#fbbf24] flex items-center gap-1">
                           ⭐ {hotel.category}
+                        </p>
+                        <p className="text-xs text-gray-400 pt-1">
+                          ☕ {hotel.amenities}
                         </p>
                       </div>
                     </div>
