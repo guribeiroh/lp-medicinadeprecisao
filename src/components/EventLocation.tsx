@@ -172,7 +172,7 @@ export function EventLocation() {
                   <div className="space-y-3 md:space-y-4">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#10b981] flex-shrink-0"></div>
-                      <span className="text-sm md:text-base text-gray-300">Estacionamento no local</span>
+                      <span className="text-sm md:text-base text-gray-300">Estacionamento pago no local</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 rounded-full bg-[#10b981] flex-shrink-0"></div>
