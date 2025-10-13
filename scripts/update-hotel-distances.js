@@ -21,7 +21,7 @@ const eventLocation = {
 // Coordenadas obtidas do Google Maps para maior precisão
 const hotels = [
   {
-    name: 'Blue Tree Premium Alphaville',
+    name: 'Blue Tree Alphaville',
     address: 'Av. Marcos Penteado de Ulhôa Rodrigues, 939',
     searchQuery: 'Av. Marcos Penteado de Ulhôa Rodrigues, 939, Alphaville, Barueri, São Paulo',
     coords: { lat: -23.4957, lon: -46.8495 },

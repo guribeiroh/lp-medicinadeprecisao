@@ -154,7 +154,7 @@ export function Hero({ onCTAClick }: HeroProps) {
             {[
               { value: "2 Dias", label: "Imersão Total" },
               { value: "50 Ingressos", label: "Limitados" },
-              { value: "+20h", label: "Certificado" },
+              { value: "+20h", label: "de Conteúdo" },
             ].map((stat, index) => (
                 <div key={index} className="space-y-0.5">
                   <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight">

@@ -16,13 +16,13 @@ export function EventLocation() {
   
   const nearbyHotels = [
     {
-      name: "Blue Tree Premium Alphaville",
+      name: "Blue Tree Alphaville",
       address: "Av. Marcos Penteado de Ulhôa Rodrigues, 939",
       distanceDriving: "4 min (3.2 km)",
       distanceWalking: "38 min (3.2 km)",
       category: "4 estrelas",
       amenities: "Café da manhã incluso",
-      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Premium%20Alphaville%20Av.%20Marcos%20Penteado%20de%20Ulh%C3%B4a%20Rodrigues%2C%20939/Casa+do+Storytelling,+Alphaville"
+      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Alphaville%20Av.%20Marcos%20Penteado%20de%20Ulh%C3%B4a%20Rodrigues%2C%20939/Casa+do+Storytelling,+Alphaville"
     },
     {
       name: "Radisson Hotel Alphaville",
