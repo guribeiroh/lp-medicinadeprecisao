@@ -100,7 +100,7 @@ export function Experience() {
                   </div>
                 </div>
                 <div>
-                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">Alphaville Premium</h4>
+                  <h4 className="text-lg md:text-xl font-bold text-white mb-2">Alphaville</h4>
                   <p className="text-sm md:text-base text-gray-400 group-hover:text-gray-300 transition-colors">Alpha Square Mall, Alphaville/SP</p>
                 </div>
               </div>
