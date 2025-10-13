@@ -2,16 +2,13 @@
 
 import { Button } from "./ui/button"
 import { motion, AnimatePresence } from "motion/react"
-import { ArrowRight, Calendar, MapPin, CheckCircle2, ChevronDown, TrendingUp } from "lucide-react"
-import { useState } from "react"
+import { ArrowRight, Calendar, MapPin, CheckCircle2, TrendingUp } from "lucide-react"
 
 interface HeroProps {
   onCTAClick: () => void
 }
 
 export function Hero({ onCTAClick }: HeroProps) {
-  const [showAllBullets, setShowAllBullets] = useState(false)
-
   const bullets = [
     "Estruturar seu consultório com visão de empresa e crescimento previsível.",
     "Criar protocolos clínicos de alto valor percebido que elevam seus resultados e autoridade.",
@@ -19,7 +16,7 @@ export function Hero({ onCTAClick }: HeroProps) {
     "Precificar, posicionar e comunicar seu valor com segurança construindo autoridade e liberdade.",
   ]
 
-  const visibleBullets = showAllBullets ? bullets : bullets.slice(0, 3)
+  const visibleBullets = bullets // Mostra todos os 4 bullets
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a] py-16 sm:py-20 md:py-8">
@@ -100,18 +97,6 @@ export function Hero({ onCTAClick }: HeroProps) {
                     ))}
                   </AnimatePresence>
                 </div>
-
-                {/* Show More Button - Only visible on mobile when not expanded */}
-                <motion.button
-                  onClick={() => setShowAllBullets(!showAllBullets)}
-                  className="md:hidden mt-2 flex items-center gap-2 text-sm font-medium text-[#3b82f6] hover:text-[#2563eb] transition-colors group"
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <span>{showAllBullets ? "Ver menos" : `Ver mais +${bullets.length - 3}`}</span>
-                  <motion.div animate={{ rotate: showAllBullets ? 180 : 0 }} transition={{ duration: 0.3 }}>
-                    <ChevronDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
-                  </motion.div>
-                </motion.button>
               </div>
             </motion.div>
 
