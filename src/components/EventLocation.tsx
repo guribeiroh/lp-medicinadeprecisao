@@ -11,41 +11,37 @@ export function EventLocation() {
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.0977540168817!2d-46.8559453!3d-23.5086372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc99e1573dfc77cbf!2sCasa%20do%20Storytelling!5e0!3m2!1spt-BR!2sbr!4v1699999999999!5m2!1spt-BR!2sbr"
   }
 
-  // ⚠️ ATENÇÃO: ATUALIZAR COM DADOS REAIS DO GOOGLE MAPS
-  // Para obter as distâncias reais:
-  // 1. Acesse: https://www.google.com/maps
-  // 2. Digite: "De [NOME_DO_HOTEL] para Casa do Storytelling, Alphaville"
-  // 3. Veja o tempo de carro e a pé
-  // 4. Atualize os valores abaixo
+  // ✅ Distâncias calculadas com APIs gratuitas (OpenStreetMap + OSRM)
+  // Atualizado automaticamente via: node scripts/update-hotel-distances.js
   
   const nearbyHotels = [
     {
       name: "Blue Tree Premium Alphaville",
-      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
-      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      distanceDriving: "4 min (2.7 km)",
+      distanceWalking: "32 min (2.7 km)",
       category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Blue+Tree+Premium+Alphaville/Casa+do+Storytelling,+Alphaville"
+      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Premium%20Alphaville/Casa+do+Storytelling,+Alphaville"
     },
     {
       name: "Comfort Hotel Alphaville",
-      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
-      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      distanceDriving: "3 min (2.0 km)",
+      distanceWalking: "24 min (2.0 km)",
       category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Comfort+Hotel+Alphaville/Casa+do+Storytelling,+Alphaville"
+      mapUrl: "https://www.google.com/maps/dir/Comfort%20Hotel%20Alphaville/Casa+do+Storytelling,+Alphaville"
     },
     {
       name: "Quality Suites Alphaville",
-      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
-      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      distanceDriving: "4 min (2.8 km)",
+      distanceWalking: "34 min (2.8 km)",
       category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Quality+Suites+Alphaville/Casa+do+Storytelling,+Alphaville"
+      mapUrl: "https://www.google.com/maps/dir/Quality%20Suites%20Alphaville/Casa+do+Storytelling,+Alphaville"
     },
     {
       name: "Transamerica Executive Jaraguá",
-      distanceDriving: "X min (X km)", // 🚗 ATUALIZAR COM DADOS REAIS
-      distanceWalking: "X min (X km)",  // 🚶 ATUALIZAR COM DADOS REAIS
+      distanceDriving: "4 min (2.5 km)",
+      distanceWalking: "30 min (2.5 km)",
       category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Transamerica+Executive+Jaraguá/Casa+do+Storytelling,+Alphaville"
+      mapUrl: "https://www.google.com/maps/dir/Transamerica%20Executive%20Jaragu%C3%A1/Casa+do+Storytelling,+Alphaville"
     }
   ]
 

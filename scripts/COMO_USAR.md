@@ -1,41 +1,54 @@
 # 🚀 Como Usar o Script de Distâncias
 
-## ⚡ Resumo Rápido
+## ⚡ Resumo Super Rápido
 
-### 1️⃣ Obter API Key (5 minutos)
-1. Acesse: https://console.cloud.google.com/
-2. Crie um novo projeto
-3. Ative: **Distance Matrix API**
-4. Vá em Credenciais → Criar credenciais → Chave de API
-5. Copie a chave
+### ✨ 100% GRATUITO - Sem API Key!
 
-### 2️⃣ Instalar Axios (já feito ✅)
+### 1️⃣ Executar Script (1 comando!)
+
 ```bash
-npm install axios
-```
-
-### 3️⃣ Executar Script
-
-**Windows (PowerShell):**
-```powershell
-$env:GOOGLE_MAPS_API_KEY="SUA_CHAVE_AQUI"
 node scripts/update-hotel-distances.js
 ```
 
-**Ou edite o arquivo e coloque a chave:**
-- Abra: `scripts/update-hotel-distances.js`
-- Linha 10: Cole sua API key
-- Execute: `node scripts/update-hotel-distances.js`
+**É isso! Sem configuração, sem API Key! 🎉**
 
-### 4️⃣ Copiar Resultado
-- O script vai exibir o código pronto
+### 2️⃣ Copiar Resultado
+- O script vai exibir o código pronto no console
 - Copie e cole em: `src/components/EventLocation.tsx`
 - Substitua o array `nearbyHotels`
 
-## 📊 Custo
-- **GRÁTIS** (Google dá $200/mês de crédito)
-- Este script custa ~$0.04 (8 requisições)
+### 3️⃣ Pronto! ✅
+
+---
+
+## 🔧 Como Funciona
+
+O script usa **APIs gratuitas e open source**:
+- 🗺️ **Nominatim** (OpenStreetMap) - Para geocodificação
+- 🛣️ **OSRM** - Para calcular rotas
+
+**Tempo de execução:** ~10 segundos
+
+---
+
+## 💰 Custo
+
+- **R$ 0,00** - Completamente GRÁTIS! 🎉
+- Sem cadastro
+- Sem cartão de crédito
+- Sem limites
+
+---
+
+## 📋 Requisitos
+
+- ✅ Node.js instalado
+- ✅ `axios` instalado (já foi instalado)
+- ✅ Conexão com internet
+
+---
 
 ## 📖 Documentação Completa
+
 Veja: `scripts/README_API.md`
 

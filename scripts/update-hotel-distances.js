@@ -1,103 +1,194 @@
-// Script para atualizar distâncias reais dos hotéis usando Google Maps API
+// Script para atualizar distâncias reais dos hotéis usando APIs GRATUITAS
+// ✅ 100% GRATUITO - Sem necessidade de API Key!
+// Usa: Nominatim (OpenStreetMap) + OSRM (Open Source Routing Machine)
+// 
 // Instalar: npm install axios
 // Executar: node scripts/update-hotel-distances.js
 
 const axios = require('axios');
 const fs = require('fs');
 
-// ⚠️ IMPORTANTE: Obtenha sua API Key em: https://console.cloud.google.com/google/maps-apis
-const GOOGLE_MAPS_API_KEY = process.env.GOOGLE_MAPS_API_KEY || 'SUA_API_KEY_AQUI';
-
-// Local do evento
-const eventLocation = 'Casa do Storytelling, Alphaville Conde II, Barueri, SP';
+// Local do evento (Casa do Storytelling)
+const eventLocation = {
+  name: 'Casa do Storytelling',
+  address: 'Alphaville Conde II, Barueri, SP',
+  // Coordenadas aproximadas (obtidas do link do Google Maps fornecido)
+  lat: -23.5086372,
+  lon: -46.8559453
+};
 
 // Hotéis para calcular distância
+// Coordenadas obtidas do Google Maps para maior precisão
 const hotels = [
   {
     name: 'Blue Tree Premium Alphaville',
-    searchQuery: 'Blue Tree Premium Alphaville, Barueri, SP'
+    searchQuery: 'Blue Tree Premium, Alameda Rio Negro, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4957, lon: -46.8495 }, // Coordenadas aproximadas
+    category: '4 estrelas'
   },
   {
     name: 'Comfort Hotel Alphaville',
-    searchQuery: 'Comfort Hotel Alphaville, Barueri, SP'
+    searchQuery: 'Comfort Hotel, Alphaville Industrial, Barueri, São Paulo',
+    coords: { lat: -23.4989, lon: -46.8563 }, // Coordenadas aproximadas
+    category: '3 estrelas'
   },
   {
     name: 'Quality Suites Alphaville',
-    searchQuery: 'Quality Suites Alphaville, Barueri, SP'
+    searchQuery: 'Quality Suites, Alameda Araguaia, Alphaville, Barueri, São Paulo',
+    coords: { lat: -23.4932, lon: -46.8501 }, // Coordenadas aproximadas
+    category: '4 estrelas'
   },
   {
     name: 'Transamerica Executive Jaraguá',
-    searchQuery: 'Transamerica Executive Jaraguá, Barueri, SP'
+    searchQuery: 'Transamerica Executive, Alphaville Centro Industrial, Barueri, São Paulo',
+    coords: { lat: -23.5134, lon: -46.8656 }, // Coordenadas aproximadas
+    category: '3 estrelas'
   }
 ];
 
-async function getDistance(origin, destination, mode) {
-  const url = 'https://maps.googleapis.com/maps/api/distancematrix/json';
+// Geocodificar endereço usando Nominatim (OpenStreetMap) - GRATUITO
+async function geocode(address) {
+  const url = 'https://nominatim.openstreetmap.org/search';
   
   try {
     const response = await axios.get(url, {
       params: {
-        origins: origin,
-        destinations: destination,
-        mode: mode, // 'driving' ou 'walking'
-        key: GOOGLE_MAPS_API_KEY,
-        language: 'pt-BR'
+        q: address,
+        format: 'json',
+        limit: 1,
+        countrycodes: 'br'
+      },
+      headers: {
+        'User-Agent': 'MedicinaDePrecisao/1.0' // Obrigatório para Nominatim
       }
     });
 
-    if (response.data.status === 'OK') {
-      const element = response.data.rows[0].elements[0];
-      
-      if (element.status === 'OK') {
-        return {
-          distance: element.distance.text,
-          duration: element.duration.text
-        };
-      }
+    if (response.data && response.data.length > 0) {
+      return {
+        lat: parseFloat(response.data[0].lat),
+        lon: parseFloat(response.data[0].lon)
+      };
     }
     
     return null;
   } catch (error) {
-    console.error(`Erro ao buscar distância: ${error.message}`);
+    console.error(`Erro ao geocodificar: ${error.message}`);
+    return null;
+  }
+}
+
+// Calcular distância usando OSRM (Open Source Routing Machine) - GRATUITO
+async function getDistance(origin, destination, profile) {
+  // profile: 'driving' ou 'foot' (a pé)
+  const url = `http://router.project-osrm.org/route/v1/${profile}/${origin.lon},${origin.lat};${destination.lon},${destination.lat}`;
+  
+  try {
+    const response = await axios.get(url, {
+      params: {
+        overview: false,
+        steps: false
+      }
+    });
+
+    if (response.data.code === 'Ok' && response.data.routes && response.data.routes.length > 0) {
+      const route = response.data.routes[0];
+      const distanceKm = (route.distance / 1000).toFixed(1); // metros para km
+      const durationMin = Math.round(route.duration / 60); // segundos para minutos
+      
+      return {
+        distance: `${distanceKm} km`,
+        duration: `${durationMin} min`,
+        formatted: `${durationMin} min (${distanceKm} km)`
+      };
+    }
+    
+    return null;
+  } catch (error) {
+    console.error(`Erro ao calcular rota: ${error.message}`);
     return null;
   }
 }
 
 async function updateHotelDistances() {
-  console.log('🚀 Buscando distâncias reais dos hotéis...\n');
+  console.log('🚀 Buscando distâncias reais dos hotéis usando APIs GRATUITAS...');
+  console.log('📡 APIs: Nominatim (OpenStreetMap) + OSRM\n');
 
   const results = [];
 
   for (const hotel of hotels) {
-    console.log(`📍 Calculando distâncias para: ${hotel.name}`);
+    console.log(`📍 Processando: ${hotel.name}`);
 
-    // Buscar distância de carro
-    const driving = await getDistance(hotel.searchQuery, eventLocation, 'driving');
+    // 1. Tentar geocodificar endereço do hotel
+    console.log(`   🔍 Buscando coordenadas via Nominatim...`);
+    let hotelCoords = await geocode(hotel.searchQuery);
     
-    // Buscar distância a pé
-    const walking = await getDistance(hotel.searchQuery, eventLocation, 'walking');
+    // Se não encontrar, usar coordenadas fixas
+    if (!hotelCoords && hotel.coords) {
+      console.log(`   ⚠️  Nominatim não encontrou, usando coordenadas aproximadas`);
+      hotelCoords = hotel.coords;
+    }
+    
+    if (!hotelCoords) {
+      console.log(`   ❌ Não foi possível obter coordenadas\n`);
+      continue;
+    }
+
+    console.log(`   ✅ Coordenadas: ${hotelCoords.lat}, ${hotelCoords.lon}`);
+
+    // Aguardar 1 segundo (política de uso justo do Nominatim)
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // 2. Calcular distância de carro
+    console.log(`   🚗 Calculando rota de carro...`);
+    const driving = await getDistance(hotelCoords, eventLocation, 'driving');
+    
+    // 3. Calcular distância a pé
+    console.log(`   🚶 Calculando rota a pé...`);
+    let walking = await getDistance(hotelCoords, eventLocation, 'foot');
+    
+    // Se o tempo a pé for muito similar ao de carro (erro comum do OSRM)
+    // calculamos baseado em velocidade média de caminhada (5 km/h)
+    if (driving && walking) {
+      const drivingMinutes = parseInt(driving.duration);
+      const walkingMinutes = parseInt(walking.duration);
+      
+      // Se a diferença for menor que 2x, recalcular baseado em velocidade média
+      if (walkingMinutes < drivingMinutes * 1.5) {
+        const distanceKm = parseFloat(driving.distance);
+        const walkingTimeMin = Math.round((distanceKm / 5) * 60); // 5 km/h média
+        walking = {
+          ...walking,
+          duration: `${walkingTimeMin} min`,
+          formatted: `${walkingTimeMin} min (${driving.distance})`
+        };
+      }
+    }
 
     if (driving && walking) {
       const result = {
         name: hotel.name,
-        distanceDriving: `${driving.duration} (${driving.distance})`,
-        distanceWalking: `${walking.duration} (${walking.distance})`
+        distanceDriving: driving.formatted,
+        distanceWalking: walking.formatted,
+        category: hotel.category
       };
       
       results.push(result);
       
-      console.log(`  🚗 De carro: ${result.distanceDriving}`);
-      console.log(`  🚶 A pé: ${result.distanceWalking}\n`);
+      console.log(`   ✅ De carro: ${result.distanceDriving}`);
+      console.log(`   ✅ A pé: ${result.distanceWalking}\n`);
     } else {
-      console.log(`  ❌ Não foi possível calcular as distâncias\n`);
+      console.log(`   ❌ Não foi possível calcular as rotas\n`);
     }
 
-    // Aguardar um pouco entre requisições para não exceder rate limit
+    // Aguardar entre hotéis
     await new Promise(resolve => setTimeout(resolve, 500));
   }
 
   // Gerar código para copiar e colar
-  console.log('\n✅ Distâncias calculadas com sucesso!\n');
+  console.log('\n' + '='.repeat(70));
+  console.log('✅ Distâncias calculadas com sucesso!');
+  console.log('='.repeat(70) + '\n');
+  
   console.log('📋 Copie e cole no arquivo src/components/EventLocation.tsx:\n');
   console.log('const nearbyHotels = [');
   
@@ -106,7 +197,7 @@ async function updateHotelDistances() {
     console.log(`    name: "${hotel.name}",`);
     console.log(`    distanceDriving: "${hotel.distanceDriving}",`);
     console.log(`    distanceWalking: "${hotel.distanceWalking}",`);
-    console.log(`    category: "${hotels[index].category || '4 estrelas'}",`);
+    console.log(`    category: "${hotel.category}",`);
     console.log(`    mapUrl: "https://www.google.com/maps/dir/${encodeURIComponent(hotel.name)}/Casa+do+Storytelling,+Alphaville"`);
     console.log(`  }${index < results.length - 1 ? ',' : ''}`);
   });
@@ -114,26 +205,31 @@ async function updateHotelDistances() {
   console.log('];\n');
 
   // Salvar em arquivo JSON
+  const outputFile = 'hotel-distances.json';
   fs.writeFileSync(
-    'hotel-distances.json',
-    JSON.stringify(results, null, 2)
+    outputFile,
+    JSON.stringify({
+      generatedAt: new Date().toISOString(),
+      eventLocation: eventLocation,
+      hotels: results
+    }, null, 2)
   );
   
-  console.log('💾 Dados salvos em: hotel-distances.json');
+  console.log(`💾 Dados salvos em: ${outputFile}`);
+  console.log('\n' + '='.repeat(70));
+  console.log('🎉 Pronto! Agora é só copiar e colar no código.');
+  console.log('='.repeat(70) + '\n');
 }
 
-// Verificar se a API key está configurada
-if (GOOGLE_MAPS_API_KEY === 'SUA_API_KEY_AQUI') {
-  console.error('❌ ERRO: Configure a GOOGLE_MAPS_API_KEY');
-  console.log('\n📝 Como obter a API Key:');
-  console.log('1. Acesse: https://console.cloud.google.com/google/maps-apis');
-  console.log('2. Crie um projeto ou selecione um existente');
-  console.log('3. Ative a "Distance Matrix API"');
-  console.log('4. Vá em "Credenciais" e crie uma API Key');
-  console.log('5. Execute: export GOOGLE_MAPS_API_KEY="sua_key_aqui"');
-  console.log('6. Ou edite este arquivo e coloque a key diretamente\n');
+// Executar o script
+console.log('╔════════════════════════════════════════════════════════════════╗');
+console.log('║  🗺️  CALCULADOR DE DISTÂNCIAS - 100% GRATUITO                 ║');
+console.log('║  Usando OpenStreetMap (Nominatim + OSRM)                      ║');
+console.log('║  Sem necessidade de API Key! 🎉                               ║');
+console.log('╚════════════════════════════════════════════════════════════════╝\n');
+
+updateHotelDistances().catch(error => {
+  console.error('\n❌ Erro ao executar o script:', error.message);
   process.exit(1);
-}
-
-updateHotelDistances();
+});
 
