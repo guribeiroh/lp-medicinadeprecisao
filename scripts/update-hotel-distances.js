@@ -197,8 +197,7 @@ async function updateHotelDistances() {
     console.log(`    name: "${hotel.name}",`);
     console.log(`    distanceDriving: "${hotel.distanceDriving}",`);
     console.log(`    distanceWalking: "${hotel.distanceWalking}",`);
-    console.log(`    category: "${hotel.category}",`);
-    console.log(`    mapUrl: "https://www.google.com/maps/dir/${encodeURIComponent(hotel.name)}/Casa+do+Storytelling,+Alphaville"`);
+    console.log(`    category: "${hotel.category}"`);
     console.log(`  }${index < results.length - 1 ? ',' : ''}`);
   });
   

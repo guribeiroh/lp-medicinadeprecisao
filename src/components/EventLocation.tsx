@@ -19,29 +19,25 @@ export function EventLocation() {
       name: "Blue Tree Premium Alphaville",
       distanceDriving: "4 min (2.7 km)",
       distanceWalking: "32 min (2.7 km)",
-      category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Blue%20Tree%20Premium%20Alphaville/Casa+do+Storytelling,+Alphaville"
+      category: "4 estrelas"
     },
     {
       name: "Comfort Hotel Alphaville",
       distanceDriving: "3 min (2.0 km)",
       distanceWalking: "24 min (2.0 km)",
-      category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Comfort%20Hotel%20Alphaville/Casa+do+Storytelling,+Alphaville"
+      category: "3 estrelas"
     },
     {
       name: "Quality Suites Alphaville",
       distanceDriving: "4 min (2.8 km)",
       distanceWalking: "34 min (2.8 km)",
-      category: "4 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Quality%20Suites%20Alphaville/Casa+do+Storytelling,+Alphaville"
+      category: "4 estrelas"
     },
     {
       name: "Transamerica Executive Jaraguá",
       distanceDriving: "4 min (2.5 km)",
       distanceWalking: "30 min (2.5 km)",
-      category: "3 estrelas",
-      mapUrl: "https://www.google.com/maps/dir/Transamerica%20Executive%20Jaragu%C3%A1/Casa+do+Storytelling,+Alphaville"
+      category: "3 estrelas"
     }
   ]
 
@@ -260,7 +256,7 @@ export function EventLocation() {
                     </div>
 
                     {/* Hotel Info */}
-                    <div className="flex-1 mb-4">
+                    <div className="flex-1">
                       <h4 className="text-base md:text-lg font-bold text-white mb-3 leading-tight">
                         {hotel.name}
                       </h4>
@@ -278,17 +274,6 @@ export function EventLocation() {
                         </p>
                       </div>
                     </div>
-
-                    {/* View Button */}
-                    <a
-                      href={hotel.mapUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#f59e0b]/50 rounded-lg text-sm text-gray-300 hover:text-white transition-all group-hover:shadow-lg"
-                    >
-                      <MapPin className="w-4 h-4" />
-                      <span>Ver no mapa</span>
-                    </a>
                   </div>
                 </motion.div>
               ))}
