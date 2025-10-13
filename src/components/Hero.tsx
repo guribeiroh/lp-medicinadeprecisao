@@ -168,11 +168,11 @@ export function Hero({ onCTAClick }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6 pt-2 md:pt-2"
             >
-              {[
-                { value: "2 Dias", label: "Imersão Total" },
-                { value: "50 Ingressos", label: "Limitados" },
-                { value: "+16h", label: "Conteúdo" },
-              ].map((stat, index) => (
+            {[
+              { value: "2 Dias", label: "Imersão Total" },
+              { value: "50 Ingressos", label: "Limitados" },
+              { value: "+20h", label: "Certificado" },
+            ].map((stat, index) => (
                 <div key={index} className="space-y-0.5">
                   <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight">
                     {stat.value}
