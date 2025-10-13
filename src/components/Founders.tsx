@@ -70,7 +70,7 @@ export function Founders() {
                             <img 
                               src={founder.image} 
                               alt={founder.name}
-                              className="w-full h-full object-cover"
+                              className="w-full h-full object-cover object-top"
                             />
                           ) : (
                             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1a1f2e]/80 to-[#0f1419]/80 backdrop-blur-sm">

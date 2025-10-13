@@ -4,14 +4,17 @@ import { Quote, Star } from "lucide-react";
 export function Testimonials() {
   const testimonials = [
     {
+      name: "Dr. Silas",
       quote: "Descobri que liberdade na medicina não é trabalhar menos, é trabalhar com direção.",
       rating: 5
     },
     {
+      name: "Dra. Daniely",
       quote: "Tripliquei meu faturamento e voltei a amar atender.",
       rating: 5
     },
     {
+      name: "Dr. Filipi",
       quote: "Parei de sobreviver e comecei a crescer.",
       rating: 5
     }
@@ -77,13 +80,16 @@ export function Testimonials() {
                   </blockquote>
 
                   {/* Stars */}
-                  <div className="flex gap-1">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star 
-                        key={i}
-                        className="w-5 h-5 text-[#fbbf24] fill-[#fbbf24]" 
-                      />
-                    ))}
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star 
+                          key={i}
+                          className="w-5 h-5 text-[#fbbf24] fill-[#fbbf24]" 
+                        />
+                      ))}
+                    </div>
+                    <p className="text-sm font-semibold text-[#3b82f6]">{testimonial.name}</p>
                   </div>
                 </div>
               </motion.div>
