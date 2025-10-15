@@ -85,60 +85,52 @@ export function Testimonials() {
             </p>
           </motion.div>
 
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0a0f1a] to-transparent z-20 pointer-events-none" />
-            <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0a0f1a] to-transparent z-20 pointer-events-none" />
-            <div 
-              className="flex overflow-x-scroll gap-6 md:gap-8 pb-4"
-              style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', msOverflowStyle: 'none' /* IE and Edge */ }}
-              ref={scrollRef}
-            >
-              {duplicatedTestimonials.map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, amount: 0.5 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="group relative flex-none w-[300px] sm:w-[350px]"
-                >
-                  <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
-                  
-                  <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all group-hover:shadow-2xl h-full flex flex-col">
-                    {/* Profile Image */}
-                    <div className="flex items-start mb-6">
-                      <div className="relative w-16 h-16 md:w-20 md:h-20">
-                        <img 
-                          src={testimonial.image} 
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover rounded-xl border-2 border-[#f59e0b]/30 group-hover:border-[#f59e0b]/50 transition-all"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Quote */}
-                    <blockquote className="flex-1 mb-6">
-                      <p className="text-lg text-gray-200 leading-relaxed italic">
-                        "{testimonial.quote}"
-                      </p>
-                    </blockquote>
-
-                    {/* Stars & Name */}
-                    <div className="flex items-center justify-between">
-                      <div className="flex gap-1">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star 
-                            key={i}
-                            className="w-5 h-5 text-[#fbbf24] fill-[#fbbf24]" 
-                          />
-                        ))}
-                      </div>
-                      <p className="text-sm font-semibold text-[#3b82f6]">{testimonial.name}</p>
+          <div 
+            className="flex overflow-x-scroll gap-6 md:gap-8 pb-4"
+            style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', msOverflowStyle: 'none' /* IE and Edge */ }}
+            ref={scrollRef}
+          >
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                className="group relative flex-none w-[300px] sm:w-[350px]"
+              >
+                <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+                
+                <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all group-hover:shadow-2xl h-full flex flex-col">
+                  {/* Profile Image */}
+                  <div className="flex items-start mb-6">
+                    <div className="relative w-16 h-16 md:w-20 md:h-20">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover rounded-xl border-2 border-[#f59e0b]/30 group-hover:border-[#f59e0b]/50 transition-all"
+                      />
                     </div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+
+                  {/* Quote */}
+                  <blockquote className="flex-1 mb-6">
+                    <p className="text-lg text-gray-200 leading-relaxed italic">
+                      "{testimonial.quote}"
+                    </p>
+                  </blockquote>
+
+                  {/* Stars & Name */}
+                  <div className="flex items-center justify-between">
+                    <div className="flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star 
+                          key={i}
+                          className="w-5 h-5 text-[#fbbf24] fill-[#fbbf24]" 
+                        />
+                      ))}
+                    </div>
+                    <p className="text-sm font-semibold text-[#3b82f6]">{testimonial.name}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
