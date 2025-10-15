@@ -41,7 +41,7 @@ export function Testimonials() {
     let scrollAmount = 0;
 
     const animateScroll = () => {
-      scrollAmount += 2; // Adjust scroll speed here
+      scrollAmount += 0.5; // Adjust scroll speed here
       if (scrollAmount >= scrollElement.scrollWidth / 2) {
         scrollAmount = 0; // Reset scroll position to create infinite loop
       }
