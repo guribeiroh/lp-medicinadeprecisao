@@ -22,7 +22,7 @@ export function Founders() {
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

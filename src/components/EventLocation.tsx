@@ -54,7 +54,7 @@ export function EventLocation() {
   ]
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#0a0f1a] to-[#0d1219] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#0a0f1a] to-[#0d1219] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gradient-to-br from-[#f59e0b]/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-gradient-to-tl from-[#2563eb]/10 to-transparent rounded-full blur-3xl" />

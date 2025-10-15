@@ -11,24 +11,24 @@ interface HeroProps {
 export function Hero({ onCTAClick }: HeroProps) {
   const bullets = [
     {
-      text: "com visão de empresa e crescimento previsível.",
-      highlight: "Estruturar seu consultório"
+      text: "",
+      highlight: "Estruturar o seu consultório"
     },
     {
-      text: "de alto valor percebido que elevam seus resultados e autoridade.",
-      highlight: "Criar protocolos clínicos"
+      text: "",
+      highlight: "Conquistar novos pacientes"
     },
     {
-      text: "em seus pacientes com ciência, propósito e precisão",
-      highlight: "Promover longevidade e performance"
+      text: "",
+      highlight: "Implementar novos protocolos de tratamento"
     },
     {
-      text: "seu valor com segurança construindo autoridade e liberdade.",
-      highlight: "Precificar, posicionar e comunicar"
+      text: "",
+      highlight: "Organizar a gestão do seu consultório"
     },
   ]
 
-  const visibleBullets = bullets // Mostra todos os 4 bullets
+  const visibleBullets = bullets // Mostra todos os 3 bullets
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a] py-16 sm:py-20 md:py-8">
@@ -79,13 +79,14 @@ export function Hero({ onCTAClick }: HeroProps) {
               className="space-y-2 sm:space-y-3 md:space-y-4"
             >
               <h1 className="font-extrabold leading-[1.1] tracking-tight">
-                <span className="block text-white mb-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl">
-                  Médico, você já tem precisão para salvar vidas.
-                </span>
-                <span className="block gradient-text text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[rgba(41,105,237,1)]">
-                  Agora é hora de ter precisão para mudar a sua carreira médica
+                <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#f59e0b] mb-3">
+                  2 Dias para tirar o seu consultório da UTI Financeira!
                 </span>
               </h1>
+              
+              <p className="text-lg sm:text-xl text-white/90 font-bold mb-4">
+                Você sairá com o mapa completo para:
+              </p>
 
               <div className="max-w-2xl">
                 <div className="space-y-1.5 sm:space-y-2">
@@ -103,15 +104,18 @@ export function Hero({ onCTAClick }: HeroProps) {
                         }}
                         className="flex items-start gap-2 group overflow-hidden"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#3b82f6] flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                        <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                          <span className="text-[#3b82f6] font-semibold">{item.highlight}</span> {item.text}
+                        <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
+                        <p className="text-sm md:text-base text-white leading-relaxed">
+                          <span className="font-semibold">{item.highlight}</span> {item.text}
                         </p>
                       </motion.div>
                     ))}
                   </AnimatePresence>
                 </div>
               </div>
+              <p className="text-sm md:text-base text-white/70 mt-4 max-w-xl mx-auto md:mx-0">
+                Mesmo que você ainda não tenha o seu consultório
+              </p>
             </motion.div>
 
             {/* Event Info */}
@@ -151,7 +155,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                   className="group relative h-12 sm:h-12 md:h-12 px-5 sm:px-6 md:px-8 w-full sm:w-auto bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#0ea5e9] hover:from-[#1d4ed8] hover:via-[#2563eb] hover:to-[#0284c7] text-white text-sm md:text-base font-semibold rounded-full shadow-2xl shadow-[#2563eb]/20 transition-all duration-300 hover:shadow-[#2563eb]/40 hover:scale-[1.02] border-0"
                 >
                   <span className="flex items-center justify-center gap-2">
-                    QUERO PARTICIPAR DO EVENTO
+                    COMPRAR INGRESSO
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </Button>

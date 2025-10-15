@@ -1,27 +1,30 @@
 import { motion } from "motion/react";
-import { Quote, Star } from "lucide-react";
+import { Star } from "lucide-react";
 
 export function Testimonials() {
   const testimonials = [
     {
       name: "Dr. Silas",
       quote: "Descobri que liberdade na medicina não é trabalhar menos, é trabalhar com direção.",
-      rating: 5
+      rating: 5,
+      image: "/Dr. Silas.jpg"
     },
     {
       name: "Dra. Daniely",
       quote: "Tripliquei meu faturamento e voltei a amar atender.",
-      rating: 5
+      rating: 5,
+      image: "/Dr. Dani.png"
     },
     {
       name: "Dr. Filipi",
       quote: "Parei de sobreviver e comecei a crescer.",
-      rating: 5
+      rating: 5,
+      image: "/Dr; Filipi.png"
     }
   ];
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#0a0f1a] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-[#0a0f1a] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#3b82f6]/5 to-transparent rounded-full blur-3xl" />
@@ -64,11 +67,14 @@ export function Testimonials() {
                 <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
                 
                 <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl md:rounded-3xl p-6 md:p-8 border border-white/10 hover:border-white/20 transition-all group-hover:shadow-2xl h-full flex flex-col">
-                  {/* Quote Icon */}
-                  <div className="relative inline-block mb-6">
-                    <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-xl blur-lg opacity-30 group-hover:opacity-60 transition-opacity" />
-                    <div className="relative w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <Quote className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  {/* Profile Image */}
+                  <div className="flex items-start mb-6">
+                    <div className="relative w-16 h-16 md:w-20 md:h-20">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover rounded-xl border-2 border-[#f59e0b]/30 group-hover:border-[#f59e0b]/50 transition-all"
+                      />
                     </div>
                   </div>
 
@@ -79,7 +85,7 @@ export function Testimonials() {
                     </p>
                   </blockquote>
 
-                  {/* Stars */}
+                  {/* Stars & Name */}
                   <div className="flex items-center justify-between">
                     <div className="flex gap-1">
                       {[...Array(testimonial.rating)].map((_, i) => (

@@ -5,7 +5,7 @@ import { Flame, Users, Clock, MapPin, ArrowRight, Zap } from "lucide-react"
 
 export function FinalCTA() {
   return (
-    <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+    <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a]">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gradient-to-br from-[#2563eb]/20 to-transparent rounded-full blur-3xl animate-pulse" />
@@ -27,41 +27,6 @@ export function FinalCTA() {
 
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12 md:mb-16 space-y-6 md:space-y-8"
-          >
-            <div className="space-y-4 md:space-y-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight">
-                Você já salvou muitas vidas.
-              </h2>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-                <span className="bg-gradient-to-r from-[#3b82f6] via-[#2563eb] to-[#0ea5e9] bg-clip-text text-transparent">
-                  Agora é hora de salvar a sua carreira.
-                </span>
-              </h2>
-            </div>
-
-            <div className="space-y-3 md:space-y-4 text-base md:text-lg lg:text-xl text-white/80 max-w-3xl mx-auto">
-              <p>Esse evento não é sobre começar do zero.</p>
-              <p>
-                É sobre <span className="text-white">recalibrar</span> o que você já construiu.
-              </p>
-              <p>
-                É sobre colocar <span className="text-[#3b82f6]">direção</span> onde antes havia apenas esforço.
-              </p>
-            </div>
-
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 pt-2 md:pt-4 max-w-3xl mx-auto leading-relaxed">
-              Nos dias <span className="text-[#3b82f6]">20 e 21 de novembro</span>, você vai descobrir que não precisa
-              abandonar a medicina para ter liberdade, basta aprender a praticá-la com{" "}
-              <span className="text-[#0ea5e9]">precisão</span>.
-            </p>
-          </motion.div>
-
           {/* CTA Box */}
           <motion.div
             id="register"

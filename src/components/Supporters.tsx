@@ -26,7 +26,7 @@ export function Supporters() {
   ]
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-gradient-to-b from-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-br from-[#f59e0b]/5 to-transparent rounded-full blur-3xl" />

@@ -51,7 +51,7 @@ export function WhatIs({ onCTAClick }: WhatIsProps) {
   ]
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-[#0a0f1a] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-[#0a0f1a] relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#3b82f6]/5 to-transparent rounded-full blur-3xl" />

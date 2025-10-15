@@ -2,10 +2,8 @@
 
 import { VacancyProgress } from "./components/VacancyProgress"
 import { Hero } from "./components/Hero"
-import { PainPoints } from "./components/PainPoints"
+import { BeforeAfter } from "./components/BeforeAfter"
 import { WhatIs } from "./components/WhatIs"
-import { TargetAudience } from "./components/TargetAudience"
-import { Experience } from "./components/Experience"
 import { Founders } from "./components/Founders"
 import { Testimonials } from "./components/Testimonials"
 import { EventLocation } from "./components/EventLocation"
@@ -24,13 +22,11 @@ export default function App() {
     <div className="min-h-screen bg-[#0a0f1a]">
       <VacancyProgress />
       <Hero onCTAClick={scrollToCTA} />
-      <PainPoints />
+      <BeforeAfter />
+      <EventLocation />
       <WhatIs onCTAClick={scrollToCTA} />
-      <TargetAudience />
-      <Experience />
       <Founders />
       <Testimonials />
-      <EventLocation />
       <Supporters />
       <FinalCTA />
       <Footer />
