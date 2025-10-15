@@ -3,6 +3,7 @@
 import { motion } from "motion/react"
 import { CheckCircle, Calendar, MapPin, Clock, Users, Phone, Download } from "lucide-react"
 import { Button } from "../../components/ui/button"
+import Script from 'next/script'
 
 export default function ThankYouPage() {
   const eventDetails = {
@@ -35,6 +36,11 @@ export default function ThankYouPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a] relative overflow-hidden">
+      <Script id="facebook-pixel-purchase-event">
+        {`
+          fbq('track', 'Purchase', {value: 1000.00, currency: 'BRL'});
+        `}
+      </Script>
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/15 to-transparent rounded-full blur-3xl" />
