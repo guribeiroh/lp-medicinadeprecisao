@@ -4,11 +4,6 @@ import { Sparkles } from "lucide-react"
 export function Supporters() {
   const supporters = [
     {
-      name: "Clube MEV",
-      logo: "/logo (1).jpg",
-      alt: "Clube MEV - Apoiador"
-    },
-    {
       name: "Greenbook",
       logo: "/logo (2).jpg",
       alt: "Greenbook - Apoiador"
@@ -22,6 +17,21 @@ export function Supporters() {
       name: "CONAES",
       logo: "/logo (4).jpg",
       alt: "CONAES - Grupo CONAES Brasil - Apoiador"
+    },
+    {
+      name: "UNIKKA PHARMA",
+      logo: "/Logo Unikka branco.png",
+      alt: "UNIKKA PHARMA - Apoiador"
+    },
+    {
+      name: "ALMA LAB",
+      logo: "/ALMA LAB.png",
+      alt: "ALMA LAB - Apoiador"
+    },
+    {
+      name: "MEV",
+      logo: "/MEV.png",
+      alt: "MEV - Apoiador"
     }
   ]
 
@@ -82,7 +92,7 @@ export function Supporters() {
                     <img
                       src={supporter.logo}
                       alt={supporter.alt}
-                      className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110"
+                      className={`w-full h-full object-contain ${supporter.name === "ALMA LAB" ? "bg-black" : ""} filter grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110`}
                     />
                   </div>
                 </div>
