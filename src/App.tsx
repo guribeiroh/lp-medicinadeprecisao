@@ -6,6 +6,7 @@ import { BeforeAfter } from "./components/BeforeAfter"
 import { WhatIs } from "./components/WhatIs"
 import { Founders } from "./components/Founders"
 import { Testimonials } from "./components/Testimonials"
+import { Speakers } from "./components/Speakers"
 import { EventLocation } from "./components/EventLocation"
 import { Supporters } from "./components/Supporters"
 import { FinalCTA } from "./components/FinalCTA"
@@ -23,6 +24,7 @@ export default function App() {
       <VacancyProgress />
       <Hero onCTAClick={scrollToCTA} />
       <BeforeAfter />
+      <Speakers />
       <EventLocation />
       <WhatIs onCTAClick={scrollToCTA} />
       <Founders />
