@@ -3,11 +3,11 @@
 import { motion } from "motion/react"
 
 export function WhatsAppFloat() {
-  const whatsappNumber = "5537999744337" // +55 37 9997-4337
+  const whatsappNumber = "553799974337" // +55 37 9997-4337
 
   const openWhatsApp = () => {
-    const message = encodeURIComponent("Olá! Gostaria de tirar dúvidas sobre o evento Medicina de Precisão.")
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
+    const message = "Olá%21+Gostaria+de+tirar+dúvidas+sobre+o+evento+Medicina+de+Precisão."
+    window.open(`https://api.whatsapp.com/send/?phone=${whatsappNumber}&text=${message}&type=phone_number&app_absent=0`, '_blank')
   }
 
   return (
