@@ -1,0 +1,43 @@
+{
+  "generatedAt": "2025-10-13T21:07:55.440Z",
+  "eventLocation": {
+    "name": "Casa do Storytelling",
+    "address": "Alphaville Conde II, Barueri, SP",
+    "lat": -23.5086372,
+    "lon": -46.8559453
+  },
+  "hotels": [
+    {
+      "name": "Blue Tree Premium Alphaville",
+      "address": "Av. Marcos Penteado de Ulhôa Rodrigues, 939",
+      "distanceDriving": "4 min (3.2 km)",
+      "distanceWalking": "38 min (3.2 km)",
+      "category": "4 estrelas",
+      "amenities": "Café da manhã incluso"
+    },
+    {
+      "name": "Radisson Hotel Alphaville",
+      "address": "Alameda Rio Negro, 1030",
+      "distanceDriving": "4 min (3.2 km)",
+      "distanceWalking": "38 min (3.2 km)",
+      "category": "4 estrelas",
+      "amenities": "Opção business"
+    },
+    {
+      "name": "Comfort Suites Alphaville",
+      "address": "Alameda Rio Negro, 333",
+      "distanceDriving": "4 min (2.9 km)",
+      "distanceWalking": "35 min (2.9 km)",
+      "category": "4 estrelas",
+      "amenities": "Excelente custo-benefício"
+    },
+    {
+      "name": "HB Hotels Sequoia Alphaville",
+      "address": "Alameda Madeira, 292",
+      "distanceDriving": "4 min (2.7 km)",
+      "distanceWalking": "32 min (2.7 km)",
+      "category": "4 estrelas",
+      "amenities": "Academia e restaurante no local"
+    }
+  ]
+}

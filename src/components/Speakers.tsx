@@ -23,14 +23,6 @@ export function Speakers() {
       bio: "Médico, palestrante, fundador do Grupo CONAES Brasil e professor da Pós-Graduação em Medicina Endocanabinoide do CONAES Brasil. Integra neurociência e medicina para oferecer tratamentos personalizados, democratizando o acesso a terapias que promovem equilíbrio emocional e físico com ética e dedicação."
     },
     {
-      name: "Lucas Gasparini",
-      image: "/palestrantes/Lugas Gasparini.png",
-      title: "Sócio | Diretor Comercial",
-      specialty: "Unikka Pharma",
-      gender: "m",
-      bio: "Sócio e Diretor Comercial da Unikka Pharma, empresário com ampla experiência na construção e expansão de negócios na área da saúde.\n\nEspecialista em estratégias de crescimento, posicionamento de marca e desenvolvimento de equipes de alta performance. Ao longo da carreira, tem se destacado por impulsionar o faturamento de grandes empresas, liderando projetos inovadores e sustentáveis que unem visão estratégica, relacionamento sólido com parceiros e foco em resultados."
-    },
-    {
       name: "Dr. Jimmy Fardin",
       image: "/palestrantes/Jimmy Fardin.png",
       title: "Médico | Coordenador",
@@ -47,6 +39,14 @@ export function Speakers() {
       bio: "Especialista em Medicina de Precisão, dedicada a aplicar as mais modernas técnicas e conhecimentos para proporcionar tratamentos personalizados e eficazes aos pacientes."
     },
     {
+      name: "Josimar Foganholi",
+      image: "/palestrantes/Josimar.png",
+      title: "Psicólogo | MEV",
+      specialty: "Desenvolvimento Comportamental",
+      gender: "m",
+      bio: "Psicólogo responsável pelo MEV, onde conduz o desenvolvimento emocional e comportamental dos mentorados, ajudando médicos a desbloquearem crenças e acelerarem seus resultados com clareza e propósito.\n\nFormado pela UNILAGO, é especialista em Terapia Cognitivo-Comportamental (TCC) e abordagens da terceira onda, com foco em autoconhecimento e performance.\n\nCom sólida experiência clínica e uma comunicação acessível, Josimar se destaca por unir ciência, sensibilidade e resultado em cada processo de transformação."
+    },
+    {
       name: "Derek Gombradi",
       image: "/palestrantes/Derik.png",
       title: "Especialista | Consultor",
@@ -55,12 +55,12 @@ export function Speakers() {
       bio: "Especialista em gestão e desenvolvimento empresarial. Bacharel em Optometria, está há 17 anos à frente da Ótica Lagoa da Prata, negócio familiar com mais de 39 anos de atuação.\n\nSob sua liderança, a empresa alcançou crescimento de 1800% no faturamento, resultado de uma gestão eficiente e do fortalecimento da equipe.\n\nAtua como diretor da ACE/CDL de Lagoa da Prata e consultor cadastrado do SEBRAE, apoiando empresários na construção de equipes sólidas, produtivas e alinhadas ao propósito de suas empresas."
     },
     {
-      name: "Josimar Foganholi",
-      image: "/palestrantes/Josimar.png",
-      title: "Psicólogo | Clube MEV",
-      specialty: "Desenvolvimento Comportamental",
+      name: "Lucas Gasparini",
+      image: "/palestrantes/Lugas Gasparini.png",
+      title: "Sócio | Diretor Comercial",
+      specialty: "Unikka Pharma",
       gender: "m",
-      bio: "Psicólogo responsável pelo Clube MEV, onde conduz o desenvolvimento emocional e comportamental dos mentorados, ajudando médicos a desbloquearem crenças e acelerarem seus resultados com clareza e propósito.\n\nFormado pela UNILAGO, é especialista em Terapia Cognitivo-Comportamental (TCC) e abordagens da terceira onda, com foco em autoconhecimento e performance.\n\nCom sólida experiência clínica e uma comunicação acessível, Josimar se destaca por unir ciência, sensibilidade e resultado em cada processo de transformação."
+      bio: "Sócio e Diretor Comercial da Unikka Pharma, empresário com ampla experiência na construção e expansão de negócios na área da saúde.\n\nEspecialista em estratégias de crescimento, posicionamento de marca e desenvolvimento de equipes de alta performance. Ao longo da carreira, tem se destacado por impulsionar o faturamento de grandes empresas, liderando projetos inovadores e sustentáveis que unem visão estratégica, relacionamento sólido com parceiros e foco em resultados."
     }
   ];
 
