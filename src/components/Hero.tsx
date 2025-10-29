@@ -155,7 +155,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                   className="group relative h-12 sm:h-12 md:h-12 px-5 sm:px-6 md:px-8 w-full sm:w-auto bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#0ea5e9] hover:from-[#1d4ed8] hover:via-[#2563eb] hover:to-[#0284c7] text-white text-sm md:text-base font-semibold rounded-full shadow-2xl shadow-[#2563eb]/20 transition-all duration-300 hover:shadow-[#2563eb]/40 hover:scale-[1.02] border-0"
                 >
                   <span className="flex items-center justify-center gap-2">
-                    COMPRAR INGRESSO
+                    GARANTIR SUA VAGA
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                   </span>
                 </Button>

@@ -96,8 +96,7 @@ export function FinalCTA() {
                   <Button className="group relative px-6 sm:px-8 md:px-10 py-6 md:py-8 bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#0ea5e9] hover:from-[#1d4ed8] hover:via-[#2563eb] hover:to-[#0284c7] text-white text-base sm:text-lg md:text-xl h-auto rounded-full shadow-2xl shadow-[#2563eb]/50 transition-all duration-300 hover:shadow-[#2563eb]/70 hover:scale-105 border-0 w-full sm:w-auto">
                     <span className="flex items-center justify-center gap-2 md:gap-3">
                       <Flame className="w-5 h-5 md:w-6 md:h-6 flex-shrink-0" />
-                      <span className="hidden sm:inline">QUERO PARTICIPAR DO MEDICINA DE PRECISÃO</span>
-                      <span className="sm:hidden">QUERO PARTICIPAR</span>
+                      <span>GARANTIR SUA VAGA</span>
                       <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </span>
                   </Button>

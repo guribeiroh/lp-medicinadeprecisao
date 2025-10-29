@@ -199,7 +199,7 @@ export function WhatIs({ onCTAClick }: WhatIsProps) {
                 className="group h-12 md:h-14 px-6 md:px-8 w-full sm:w-auto bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#0ea5e9] hover:from-[#1d4ed8] hover:via-[#2563eb] hover:to-[#0284c7] text-white text-sm md:text-base font-semibold rounded-full shadow-2xl shadow-[#2563eb]/20 transition-all duration-300 hover:shadow-[#2563eb]/40 hover:scale-[1.02]"
               >
                 <span className="flex items-center justify-center gap-2">
-                  QUERO PARTICIPAR DO EVENTO
+                  GARANTIR SUA VAGA
                   <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-0.5 transition-transform" />
                 </span>
               </Button>

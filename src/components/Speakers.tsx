@@ -39,6 +39,14 @@ export function Speakers() {
       bio: "Especialista em Medicina de Precisão, dedicada a aplicar as mais modernas técnicas e conhecimentos para proporcionar tratamentos personalizados e eficazes aos pacientes."
     },
     {
+      name: "Dra. Daniely Camara",
+      image: "/palestrantes/Daniely Camara.png",
+      title: "Médica | Cofundadora",
+      specialty: "Dermatologia Clínica e Estética, Tricologia e Cosmiatria",
+      gender: "f",
+      bio: "Médica, pós-graduada em Dermatologia Clínica e Estética, Tricologia e Cosmiatria, com foco em um cuidado preciso, humano e integrativo com o paciente.\n\nÉ cofundadora do movimento Medicina de Precisão, em parceria com o Grupo CONAES Brasil — uma iniciativa que une excelência clínica, gestão inteligente e liberdade profissional.\n\nDaniely vive na prática o quanto o MEV e o Medicina de Precisão impulsionaram o crescimento do seu consultório, sendo hoje um exemplo de como unir técnica, propósito e visão empreendedora na medicina moderna."
+    },
+    {
       name: "Josimar Foganholi",
       image: "/palestrantes/Josimar.png",
       title: "Psicólogo | MEV",
@@ -92,8 +100,8 @@ export function Speakers() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mx-auto">
-            {speakers.slice(0, 4).map((speaker, index) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto">
+            {speakers.map((speaker, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
@@ -130,7 +138,7 @@ export function Speakers() {
                       {speaker.title}
                     </p>
                     
-                    <p className="text-sm text-gray-300 mt-auto mb-4">
+                    <p className="text-sm text-gray-300 mt-auto mb-4 h-10 overflow-hidden text-ellipsis whitespace-nowrap">
                       {speaker.specialty}
                     </p>
 
@@ -157,74 +165,6 @@ export function Speakers() {
             ))}
           </div>
 
-          {/* Segunda linha - 3 cards centralizados */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto mt-6 md:mt-8">
-            {speakers.slice(4, 7).map((speaker, idx) => {
-              const index = idx + 4;
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative w-full"
-                >
-                  <div className="absolute -inset-[1px] bg-gradient-to-br from-[#2563eb]/30 via-[#3b82f6]/30 to-[#2563eb]/30 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
-                  
-                  <div className="relative bg-gradient-to-br from-white/[0.08] to-white/[0.03] backdrop-blur-2xl rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all group-hover:shadow-2xl h-full flex flex-col">
-                    {/* Image */}
-                    <div className="relative mb-6 overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1f2e] to-[#0f1419] aspect-[3/4]">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb]/20 to-[#3b82f6]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                      <img 
-                        src={speaker.image} 
-                        alt={speaker.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {/* Overlay gradient */}
-                      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1a]/80 to-transparent pointer-events-none" />
-                    </div>
-
-                    {/* Info */}
-                    <div className="flex-1 flex flex-col min-h-[140px]">
-                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#3b82f6] transition-colors">
-                        {speaker.name}
-                      </h3>
-                      
-                      <div className="w-12 h-1 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] rounded-full mb-3" />
-                      
-                      <p className="text-sm text-gray-400 uppercase tracking-wider mb-2">
-                        {speaker.title}
-                      </p>
-                      
-                      <p className="text-sm text-gray-300 mt-auto mb-4">
-                        {speaker.specialty}
-                      </p>
-
-                      {/* Ver Bio Button - Personalizado */}
-                      <button
-                        onClick={() => setSelectedSpeaker(index)}
-                        className="w-full py-3 px-4 bg-gradient-to-r from-[#2563eb]/20 to-[#3b82f6]/20 hover:from-[#2563eb]/30 hover:to-[#3b82f6]/30 border border-[#2563eb]/30 hover:border-[#2563eb]/50 rounded-xl transition-all group/btn flex items-center justify-center gap-2"
-                      >
-                        <span className="text-sm font-semibold text-white">
-                          Conheça melhor {speaker.gender === 'f' ? 'a' : 'o'} {speaker.name.split(' ')[speaker.name.startsWith('Dra.') || speaker.name.startsWith('Dr.') ? 1 : 0]}
-                        </span>
-                        <svg className="w-4 h-4 text-[#3b82f6] group-hover/btn:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </button>
-                  </div>
-
-                  {/* Decorative icon */}
-                  <div className="absolute top-4 right-4 w-8 h-8 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <Mic2 className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
           {/* CTA Melhorado */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -247,7 +187,7 @@ export function Speakers() {
                     href="#register"
                     className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:shadow-xl hover:shadow-[#2563eb]/30 rounded-xl transition-all text-white font-bold text-lg"
                   >
-                    <span>Garantir Minha Vaga</span>
+                    <span>GARANTIR SUA VAGA</span>
                     <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
