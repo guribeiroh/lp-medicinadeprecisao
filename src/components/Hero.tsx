@@ -1,7 +1,6 @@
 "use client"
 
 import { Button } from "./ui/button"
-import { motion } from "motion/react"
 import { ArrowRight, Calendar, MapPin, CheckCircle2, TrendingUp } from "lucide-react"
 import Image from "next/image"
 
@@ -29,13 +28,7 @@ export function Hero({ onCTAClick }: HeroProps) {
     },
   ]
 
-  const visibleBullets = bullets // Mostra todos os 3 bullets
-
-  // Disable animations on mobile for better performance
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
-  const animationConfig = isMobile
-    ? { initial: {}, animate: {}, transition: { duration: 0 } }
-    : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } }
+  const visibleBullets = bullets
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a] py-16 sm:py-20 md:py-8">
@@ -57,13 +50,10 @@ export function Hero({ onCTAClick }: HeroProps) {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-8 xl:gap-16 items-center max-w-[1400px] mx-auto">
           {/* Left Content */}
-          <motion.div
-            {...animationConfig}
-            className="space-y-3 sm:space-y-4 md:space-y-6"
-          >
+          <div className="space-y-3 sm:space-y-4 md:space-y-6">
             {/* Badge */}
             <div>
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/5 backdrop-blur-xl rounded-full border border-[#2563eb]/20">
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/5 md:backdrop-blur-xl rounded-full border border-[#2563eb]/20">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3b82f6] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#3b82f6]"></span>
@@ -156,7 +146,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right - Hero Image */}
           <div className="relative w-full">
@@ -174,10 +164,10 @@ export function Hero({ onCTAClick }: HeroProps) {
                   alt="Fundadores da Medicina de Precisão"
                   fill
                   priority
-                  quality={60}
+                  quality={50}
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8dPj4fwAGzQL78pqtagAAAABJRU5ErkJggg=="
-                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 40vw"
+                  sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 40vw"
                   className="object-cover object-top sm:object-center"
                 />
 
@@ -186,7 +176,7 @@ export function Hero({ onCTAClick }: HeroProps) {
                   {/* Pulsing glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#10b981] to-[#059669] rounded-2xl blur-xl opacity-40 animate-pulse"></div>
                   
-                  <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden max-w-[190px] sm:max-w-[210px] lg:max-w-[230px]">
+                  <div className="relative bg-white/95 dark:bg-gray-900/95 md:backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/50 overflow-hidden max-w-[190px] sm:max-w-[210px] lg:max-w-[230px]">
                     {/* Top accent line */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#10b981] via-[#059669] to-[#10b981]"></div>
                     

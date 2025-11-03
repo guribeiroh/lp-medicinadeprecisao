@@ -1,10 +1,12 @@
 "use client"
 
 import dynamic from 'next/dynamic'
-import { VacancyProgress } from "./components/VacancyProgress"
 import { Hero } from "./components/Hero"
 
 // Lazy load components that are below the fold
+const VacancyProgress = dynamic(() => import("./components/VacancyProgress").then(mod => ({ default: mod.VacancyProgress })), {
+  ssr: false
+})
 const BeforeAfter = dynamic(() => import("./components/BeforeAfter").then(mod => ({ default: mod.BeforeAfter })), {
   loading: () => <div className="min-h-screen" />
 })
