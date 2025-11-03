@@ -6,25 +6,37 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Experimental features for better performance
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'motion/react'],
+  },
   images: {
     formats: ['image/avif', 'image/webp'],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 year cache
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    minimumCacheTTL: 31536000,
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'inline',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Enable SWC minification for faster builds
+  // Enable SWC minification
   swcMinify: true,
   // Enable compression
   compress: true,
-  // Optimize CSS
+  // Optimize CSS and remove console logs in production
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
   },
-  // Add cache headers
+  // Optimize output
+  poweredByHeader: false,
+  reactStrictMode: true,
+  // Add cache and performance headers
   async headers() {
     return [
       {
-        source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif)',
+        source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico)',
         locale: false,
         headers: [
           {
@@ -39,6 +51,15 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
           },
         ],
       },

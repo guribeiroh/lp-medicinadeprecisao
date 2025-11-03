@@ -68,14 +68,23 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        {/* Preconnect to external domains for faster loading */}
-        <link rel="preconnect" href="https://connect.facebook.net" />
+        {/* Critical resource hints */}
+        <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
 
-        {/* Load Facebook Pixel with higher priority */}
+        {/* Preload critical fonts */}
+        <link
+          rel="preload"
+          href="/_next/static/media/geist-sans.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+
+        {/* Load Facebook Pixel with lazyOnload to not block rendering */}
         <Script
           id="facebook-pixel-base-1"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
           {`
             !function(f,b,e,v,n,t,s)
@@ -92,7 +101,7 @@ export default function RootLayout({
         </Script>
         <Script
           id="facebook-pixel-base-2"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
           {`
             fbq('init', '407392880817743');
@@ -101,7 +110,7 @@ export default function RootLayout({
         </Script>
         <Script
           id="facebook-pixel-base-3"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         >
           {`
             fbq('init', '776548228670980');

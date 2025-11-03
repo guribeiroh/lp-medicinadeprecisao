@@ -152,4 +152,36 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+
+  /* Reduce layout shifts */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Optimize containment for better rendering */
+  section {
+    contain: layout style paint;
+  }
+}
+
+/* Critical CSS for above-the-fold content */
+@layer base {
+  /* Prevent FOUC (Flash of Unstyled Content) */
+  html {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  /* Optimize initial render */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Reduce repaints */
+  *,
+  *::before,
+  *::after {
+    background-repeat: no-repeat;
+  }
 }
