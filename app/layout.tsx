@@ -68,6 +68,17 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/* Critical CSS for above-the-fold content */}
+        <style dangerouslySetInnerHTML={{__html: `
+          body {
+            background: linear-gradient(to bottom right, #0a0f1a, #0d1219, #0a0f1a);
+            color: white;
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+          }
+          .hero-section { min-height: 100vh; display: flex; align-items: center; }
+        `}} />
+
         {/* Critical resource hints */}
         <link rel="preconnect" href="https://connect.facebook.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />

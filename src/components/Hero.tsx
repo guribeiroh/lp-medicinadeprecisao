@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "./ui/button"
-import { motion, AnimatePresence } from "motion/react"
+import { motion } from "motion/react"
 import { ArrowRight, Calendar, MapPin, CheckCircle2, TrendingUp } from "lucide-react"
 import Image from "next/image"
 
@@ -31,17 +31,23 @@ export function Hero({ onCTAClick }: HeroProps) {
 
   const visibleBullets = bullets // Mostra todos os 3 bullets
 
+  // Disable animations on mobile for better performance
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+  const animationConfig = isMobile
+    ? { initial: {}, animate: {}, transition: { duration: 0 } }
+    : { initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6 } }
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#0a0f1a] via-[#0d1219] to-[#0a0f1a] py-16 sm:py-20 md:py-8">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
+      {/* Background Elements - Hidden on mobile for performance */}
+      <div className="absolute inset-0 hidden md:block">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/15 to-transparent rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#3b82f6]/10 to-transparent rounded-full blur-3xl" />
       </div>
 
-      {/* Grid Pattern */}
+      {/* Grid Pattern - Hidden on mobile for performance */}
       <div
-        className="absolute inset-0 opacity-[0.015]"
+        className="absolute inset-0 opacity-[0.015] hidden md:block"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)`,
           backgroundSize: "80px 80px",
@@ -52,17 +58,11 @@ export function Hero({ onCTAClick }: HeroProps) {
         <div className="grid lg:grid-cols-2 gap-8 xl:gap-16 items-center max-w-[1400px] mx-auto">
           {/* Left Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            {...animationConfig}
             className="space-y-3 sm:space-y-4 md:space-y-6"
           >
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
+            <div>
               <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/5 backdrop-blur-xl rounded-full border border-[#2563eb]/20">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#3b82f6] opacity-75"></span>
@@ -70,15 +70,10 @@ export function Hero({ onCTAClick }: HeroProps) {
                 </span>
                 <span className="text-sm font-medium text-white/90 tracking-wide">Apenas para 50 Médicos</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* Main Heading */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-2 sm:space-y-3 md:space-y-4"
-            >
+            <div className="space-y-2 sm:space-y-3 md:space-y-4">
               <h1 className="font-extrabold leading-[1.1] tracking-tight">
                 <span className="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-[#f59e0b] mb-3">
                   2 Dias para tirar o seu consultório da UTI Financeira!
@@ -91,41 +86,26 @@ export function Hero({ onCTAClick }: HeroProps) {
 
               <div className="max-w-2xl">
                 <div className="space-y-1.5 sm:space-y-2">
-                  <AnimatePresence mode="sync">
-                    {visibleBullets.map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, height: 0, y: -10 }}
-                        animate={{ opacity: 1, height: "auto", y: 0 }}
-                        exit={{ opacity: 0, height: 0, y: -10 }}
-                        transition={{
-                          duration: 0.3,
-                          delay: index * 0.05,
-                          ease: "easeOut",
-                        }}
-                        className="flex items-start gap-2 group overflow-hidden"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                        <p className="text-sm md:text-base text-white leading-relaxed">
-                          <span className="font-semibold">{item.highlight}</span> {item.text}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </AnimatePresence>
+                  {visibleBullets.map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-start gap-2 group"
+                    >
+                      <CheckCircle2 className="w-4 h-4 text-white flex-shrink-0 mt-0.5" />
+                      <p className="text-sm md:text-base text-white leading-relaxed">
+                        <span className="font-semibold">{item.highlight}</span> {item.text}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
               <p className="text-sm md:text-base text-white/70 mt-4 max-w-xl mx-auto md:mx-0">
                 Mesmo que você ainda não tenha o seu consultório
               </p>
-            </motion.div>
+            </div>
 
             {/* Event Info */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-sm md:text-base text-white/70"
-            >
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 md:gap-4 text-sm md:text-base text-white/70">
               <div className="flex items-center gap-2">
                 <div className="flex items-center justify-center w-8 h-8 bg-white/5 rounded-xl border border-white/10">
                   <Calendar className="w-4 h-4 text-[#3b82f6]" />
@@ -138,15 +118,11 @@ export function Hero({ onCTAClick }: HeroProps) {
                 </div>
                 <span className="font-medium">Alphaville/SP</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <a 
+            <div>
+              <a
                 href="https://form.spotform.com.br/medicina-de-precisao"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -161,15 +137,10 @@ export function Hero({ onCTAClick }: HeroProps) {
                   </span>
                 </Button>
               </a>
-            </motion.div>
+            </div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6 pt-2 md:pt-2"
-            >
+            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6 pt-2 md:pt-2">
             {[
               { value: "2 Dias", label: "Imersão Total" },
               { value: "50 Ingressos", label: "Limitados" },
@@ -184,19 +155,14 @@ export function Hero({ onCTAClick }: HeroProps) {
                   </div>
                 </div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
 
           {/* Right - Hero Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="relative w-full"
-          >
+          <div className="relative w-full">
             <div className="relative">
-              {/* Background glow */}
-              <div className="absolute -inset-8 bg-gradient-to-br from-[#2563eb]/20 via-[#3b82f6]/10 to-transparent rounded-3xl blur-3xl" />
+              {/* Background glow - Hidden on mobile */}
+              <div className="absolute -inset-8 bg-gradient-to-br from-[#2563eb]/20 via-[#3b82f6]/10 to-transparent rounded-3xl blur-3xl hidden md:block" />
 
               <div className="relative aspect-[4/5] sm:aspect-[4/5] max-h-[60vh] sm:max-h-[60vh] lg:max-h-[70vh] w-full rounded-2xl lg:rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
                 {/* Gradient overlay for better text visibility */}
@@ -208,20 +174,15 @@ export function Hero({ onCTAClick }: HeroProps) {
                   alt="Fundadores da Medicina de Precisão"
                   fill
                   priority
-                  quality={80}
+                  quality={60}
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8dPj4fwAGzQL78pqtagAAAABJRU5ErkJggg=="
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 40vw"
                   className="object-cover object-top sm:object-center"
                 />
 
                 {/* Stats badge on image - Notification Style */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 1 }}
-                  className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 z-20"
-                >
+                <div className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 z-20">
                   {/* Pulsing glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-[#10b981] to-[#059669] rounded-2xl blur-xl opacity-40 animate-pulse"></div>
                   
@@ -259,29 +220,20 @@ export function Hero({ onCTAClick }: HeroProps) {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2"
-      >
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2">
         <div className="w-6 h-10 border-2 border-white/20 rounded-full flex items-start justify-center p-1.5">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
-            className="w-1.5 h-1.5 bg-white/40 rounded-full"
-          />
+          <div className="w-1.5 h-1.5 bg-white/40 rounded-full animate-bounce" />
         </div>
         <span className="text-xs font-medium text-white/30 uppercase tracking-wider">Scroll</span>
-      </motion.div>
+      </div>
     </section>
   )
 }
