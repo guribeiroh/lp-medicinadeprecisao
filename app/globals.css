@@ -123,3 +123,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Performance optimizations */
+@layer utilities {
+  .font-display-swap {
+    font-display: swap;
+  }
+
+  /* Optimize animations for performance */
+  @media (prefers-reduced-motion: no-preference) {
+    * {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* GPU acceleration for animations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* Improve font rendering */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}

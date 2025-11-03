@@ -68,7 +68,15 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <Script id="facebook-pixel-base-1">
+        {/* Preconnect to external domains for faster loading */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+
+        {/* Load Facebook Pixel with higher priority */}
+        <Script
+          id="facebook-pixel-base-1"
+          strategy="afterInteractive"
+        >
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -82,13 +90,19 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        <Script id="facebook-pixel-base-2">
+        <Script
+          id="facebook-pixel-base-2"
+          strategy="afterInteractive"
+        >
           {`
             fbq('init', '407392880817743');
             fbq('track', 'PageView');
           `}
         </Script>
-        <Script id="facebook-pixel-base-3">
+        <Script
+          id="facebook-pixel-base-3"
+          strategy="afterInteractive"
+        >
           {`
             fbq('init', '776548228670980');
             fbq('track', 'PageView');

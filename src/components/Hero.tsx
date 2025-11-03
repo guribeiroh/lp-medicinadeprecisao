@@ -3,6 +3,7 @@
 import { Button } from "./ui/button"
 import { motion, AnimatePresence } from "motion/react"
 import { ArrowRight, Calendar, MapPin, CheckCircle2, TrendingUp } from "lucide-react"
+import Image from "next/image"
 
 interface HeroProps {
   onCTAClick: () => void
@@ -202,10 +203,14 @@ export function Hero({ onCTAClick }: HeroProps) {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1a]/60 via-transparent to-transparent z-10" />
 
                 {/* Hero Background Image */}
-                <img
+                <Image
                   src="/hero-background.png"
                   alt="Fundadores da Medicina de Precisão"
-                  className="absolute inset-0 w-full h-full object-cover object-top sm:object-center"
+                  fill
+                  priority
+                  quality={85}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover object-top sm:object-center"
                 />
 
                 {/* Stats badge on image - Notification Style */}
