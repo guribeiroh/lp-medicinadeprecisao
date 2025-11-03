@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 export function Testimonials() {
   const testimonials = [
@@ -101,9 +102,14 @@ export function Testimonials() {
                   {/* Profile Image */}
                   <div className="flex items-start mb-6">
                     <div className="relative w-16 h-16 md:w-20 md:h-20">
-                      <img 
-                        src={testimonial.image} 
+                      <Image
+                        src={testimonial.image}
                         alt={testimonial.name}
+                        width={80}
+                        height={80}
+                        quality={75}
+                        loading="lazy"
+                        sizes="80px"
                         className="w-full h-full object-cover rounded-xl border-2 border-[#f59e0b]/30 group-hover:border-[#f59e0b]/50 transition-all"
                       />
                     </div>

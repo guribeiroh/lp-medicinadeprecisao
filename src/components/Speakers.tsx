@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { Mic2 } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 export function Speakers() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<number | null>(null);
@@ -116,13 +117,17 @@ export function Speakers() {
                   {/* Image */}
                   <div className="relative w-full overflow-hidden bg-gradient-to-br from-[#1a1f2e] to-[#0f1419] aspect-[3/4]">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb]/20 to-[#3b82f6]/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                    <img 
-                      src={speaker.image} 
+                    <Image
+                      src={speaker.image}
                       alt={speaker.name}
-                      className="absolute inset-0 w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      quality={75}
+                      loading="lazy"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                     />
                     {/* Overlay gradient */}
-                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1a]/80 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#0a0f1a]/80 to-transparent pointer-events-none z-20" />
                   </div>
                   
                   {/* Info Container */}
@@ -226,10 +231,14 @@ export function Speakers() {
 
             {/* Speaker Image */}
             <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-6">
-              <div className="w-40 h-40 md:w-48 md:h-48 rounded-xl overflow-hidden bg-gradient-to-br from-[#2563eb]/20 to-[#3b82f6]/20 flex-shrink-0 mx-auto md:mx-0">
-                <img 
-                  src={speakers[selectedSpeaker].image} 
+              <div className="w-40 h-40 md:w-48 md:h-48 rounded-xl overflow-hidden bg-gradient-to-br from-[#2563eb]/20 to-[#3b82f6]/20 flex-shrink-0 mx-auto md:mx-0 relative">
+                <Image
+                  src={speakers[selectedSpeaker].image}
                   alt={speakers[selectedSpeaker].name}
+                  width={192}
+                  height={192}
+                  quality={75}
+                  sizes="192px"
                   className="w-full h-full object-contain p-6"
                 />
               </div>

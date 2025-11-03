@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { Award, Instagram, Star } from "lucide-react";
+import Image from "next/image";
 
 export function Founders() {
   const founders = [
@@ -67,9 +68,14 @@ export function Founders() {
                       <div className="relative">
                         <div className="w-36 h-36 bg-gradient-to-br from-[#2563eb] to-[#3b82f6] rounded-full overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-500 ring-4 ring-white/10">
                           {founder.image ? (
-                            <img 
-                              src={founder.image} 
+                            <Image
+                              src={founder.image}
                               alt={founder.name}
+                              width={144}
+                              height={144}
+                              quality={75}
+                              loading="lazy"
+                              sizes="144px"
                               className="w-full h-full object-cover object-top"
                             />
                           ) : (

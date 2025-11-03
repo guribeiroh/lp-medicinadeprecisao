@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "motion/react"
 import { TrendingUp, X, Check, ArrowRight, Zap } from "lucide-react"
+import Image from "next/image"
 
 export function BeforeAfter() {
   const chartData = [
@@ -88,7 +89,7 @@ export function BeforeAfter() {
                 <p className="text-lg md:text-xl font-bold text-[#f59e0b] mb-4">De R$ 15 mil/mês</p>
                 
                 <div className="md:flex md:items-start md:gap-6">
-                  <img src="/Antes.png" alt={before.title} className="max-w-[120px] mx-auto rounded-lg mb-6 md:mb-0 md:flex-shrink-0" />
+                  <Image src="/Antes.png" alt={before.title} width={120} height={120} quality={75} loading="lazy" className="max-w-[120px] mx-auto rounded-lg mb-6 md:mb-0 md:flex-shrink-0" />
                   <div className="space-y-3 md:flex-grow">
                     {before.items.map((item, index) => (
                       <div key={index} className="flex items-start gap-3">
@@ -121,7 +122,7 @@ export function BeforeAfter() {
                 <p className="text-lg md:text-xl font-bold text-[#10b981] mb-4">Para R$ 67 mil/mês</p>
                 
                 <div className="md:flex md:items-start md:gap-6">
-                  <img src="/Depois.png" alt={after.title} className="max-w-[120px] mx-auto rounded-lg mb-6 md:mb-0 md:flex-shrink-0" />
+                  <Image src="/Depois.png" alt={after.title} width={120} height={120} quality={75} loading="lazy" className="max-w-[120px] mx-auto rounded-lg mb-6 md:mb-0 md:flex-shrink-0" />
                   <div className="space-y-3 md:flex-grow">
                     {after.items.map((item, index) => (
                       <div key={index} className="flex items-start gap-3">
