@@ -164,11 +164,11 @@ export function Hero({ onCTAClick }: HeroProps) {
                   alt="Fundadores da Medicina de Precisão"
                   fill
                   priority
-                  quality={50}
+                  quality={90}
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8dPj4fwAGzQL78pqtagAAAABJRU5ErkJggg=="
                   sizes="(max-width: 640px) 80vw, (max-width: 1024px) 50vw, 40vw"
-                  className="object-cover object-top sm:object-center"
+                  className="object-cover object-top"
                 />
 
                 {/* Stats badge on image - Notification Style */}

@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 export function Testimonials() {
@@ -30,30 +29,6 @@ export function Testimonials() {
       image: "/Camila.png"
     }
   ];
-
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const scrollElement = scrollRef.current;
-    if (!scrollElement) return;
-
-    let animationFrameId: number;
-    let scrollAmount = 0;
-
-    const animateScroll = () => {
-      scrollAmount += 0.5; // Adjust scroll speed here
-      if (scrollAmount >= scrollElement.scrollWidth / 2) {
-        scrollAmount = 0; // Reset scroll position to create infinite loop
-      }
-      scrollElement.scrollLeft = scrollAmount;
-      animationFrameId = requestAnimationFrame(animateScroll);
-    };
-
-    animationFrameId = requestAnimationFrame(animateScroll);
-
-    return () => cancelAnimationFrame(animationFrameId);
-  }, []);
 
   return (
     <section className="py-12 md:py-16 lg:py-20 bg-[#0a0f1a] relative overflow-hidden">
@@ -86,15 +61,15 @@ export function Testimonials() {
             </p>
           </motion.div>
 
-          <div 
-            className="flex overflow-x-scroll gap-6 md:gap-8 pb-4"
-            style={{ scrollbarWidth: 'none', WebkitOverflowScrolling: 'touch', msOverflowStyle: 'none' /* IE and Edge */ }}
-            ref={scrollRef}
-          >
-            {duplicatedTestimonials.map((testimonial, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {testimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="group relative flex-none w-[300px] sm:w-[350px]"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group relative"
               >
                 <div className="absolute -inset-[1px] bg-gradient-to-br from-[#f59e0b]/30 via-[#2563eb]/30 to-[#3b82f6]/30 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
                 
