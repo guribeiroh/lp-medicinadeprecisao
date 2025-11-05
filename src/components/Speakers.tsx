@@ -19,7 +19,7 @@ export function Speakers() {
       name: "Dr. João Cristofolo",
       image: "/palestrantes/João Cristofolo.png",
       title: "Médico | Fundador",
-      specialty: "Medicina Endocanabinoide",
+      specialty: "Medicina de Precisão",
       gender: "m",
       bio: "Médico, palestrante, fundador do Grupo CONAES Brasil e professor da Pós-Graduação em Medicina Endocanabinoide do CONAES Brasil. Integra neurociência e medicina para oferecer tratamentos personalizados, democratizando o acesso a terapias que promovem equilíbrio emocional e físico com ética e dedicação."
     },
@@ -35,7 +35,7 @@ export function Speakers() {
       name: "Dra. Katia Ishi",
       image: "/palestrantes/Katia.png",
       title: "Médica | Especialista",
-      specialty: "Medicina de Precisão",
+      specialty: "Tecnologias na saúde",
       gender: "f",
       bio: "Especialista em Medicina de Precisão, dedicada a aplicar as mais modernas técnicas e conhecimentos para proporcionar tratamentos personalizados e eficazes aos pacientes."
     },

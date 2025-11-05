@@ -10,17 +10,26 @@ export function VacancyProgress() {
   useEffect(() => {
     // Data de início (13 de outubro de 2025)
     const startDate = new Date('2025-10-13')
-    // Data final (10 de novembro de 2025)
-    const endDate = new Date('2025-11-10')
+    // Data limite com 5 ingressos restantes (18 de dezembro de 2025)
+    const endDate = new Date('2025-12-18')
+    // Data de esgotamento (19 de dezembro de 2025)
+    const soldOutDate = new Date('2025-12-19')
     // Data atual
     const today = new Date()
 
     // Zera as horas para comparação apenas de dias
     startDate.setHours(0, 0, 0, 0)
     endDate.setHours(0, 0, 0, 0)
+    soldOutDate.setHours(0, 0, 0, 0)
     today.setHours(0, 0, 0, 0)
 
-    // Se já passou do dia 10 de novembro, mantém em 90%
+    // Se já passou do dia 19 de dezembro, marca como esgotado (100%)
+    if (today >= soldOutDate) {
+      setPercentage(100)
+      return
+    }
+
+    // Se chegou no dia 18 de dezembro, mantém em 90% (5 ingressos restantes)
     if (today >= endDate) {
       setPercentage(90)
       return
@@ -66,10 +75,14 @@ export function VacancyProgress() {
               </div>
               <div className="text-center sm:text-left">
                 <p className="text-xs sm:text-sm font-bold text-white">
-                  {percentage}% dos ingressos preenchidos
+                  {percentage === 100 ? 'Ingressos Esgotados!' : `${percentage}% dos ingressos preenchidos`}
                 </p>
                 <p className="text-[10px] sm:text-xs text-gray-400">
-                  Restam apenas <span className="text-[#f59e0b] font-semibold">{vacanciesRemaining} ingressos</span>
+                  {percentage === 100 ? (
+                    <span className="text-red-400 font-semibold">Todas as vagas foram preenchidas</span>
+                  ) : (
+                    <>Restam apenas <span className="text-[#f59e0b] font-semibold">{vacanciesRemaining} ingressos</span></>
+                  )}
                 </p>
               </div>
             </div>
@@ -113,38 +126,62 @@ export function VacancyProgress() {
             </div>
 
             {/* CTA Button */}
+            {percentage === 100 ? (
+              <div className="hidden sm:block flex-shrink-0">
+                <motion.button
+                  disabled
+                  className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-gray-300 text-xs sm:text-sm font-semibold rounded-full shadow-lg cursor-not-allowed opacity-60"
+                >
+                  <Users className="w-4 h-4" />
+                  ESGOTADO
+                </motion.button>
+              </div>
+            ) : (
+              <a 
+                href="https://form.spotform.com.br/medicina-de-precisao"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:block flex-shrink-0"
+              >
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white text-xs sm:text-sm font-semibold rounded-full shadow-lg shadow-[#2563eb]/30 transition-all"
+                >
+                  <Users className="w-4 h-4" />
+                  GARANTIR SUA VAGA
+                </motion.button>
+              </a>
+            )}
+          </div>
+
+          {/* Mobile CTA */}
+          {percentage === 100 ? (
+            <div className="sm:hidden block mt-3 w-full">
+              <motion.button
+                disabled
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-600 text-gray-300 text-sm font-semibold rounded-full shadow-lg cursor-not-allowed opacity-60"
+              >
+                <Users className="w-4 h-4" />
+                ESGOTADO
+              </motion.button>
+            </div>
+          ) : (
             <a 
               href="https://form.spotform.com.br/medicina-de-precisao"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:block flex-shrink-0"
+              className="sm:hidden block mt-3 w-full"
             >
               <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:from-[#1d4ed8] hover:to-[#2563eb] text-white text-xs sm:text-sm font-semibold rounded-full shadow-lg shadow-[#2563eb]/30 transition-all"
+                whileTap={{ scale: 0.98 }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white text-sm font-semibold rounded-full shadow-lg"
               >
                 <Users className="w-4 h-4" />
                 GARANTIR SUA VAGA
               </motion.button>
             </a>
-          </div>
-
-          {/* Mobile CTA */}
-          <a 
-            href="https://form.spotform.com.br/medicina-de-precisao"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sm:hidden block mt-3 w-full"
-          >
-            <motion.button
-              whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] text-white text-sm font-semibold rounded-full shadow-lg"
-            >
-              <Users className="w-4 h-4" />
-              GARANTIR SUA VAGA
-            </motion.button>
-          </a>
+          )}
         </div>
       </div>
     </motion.div>

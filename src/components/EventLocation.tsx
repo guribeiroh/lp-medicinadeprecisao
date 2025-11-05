@@ -205,20 +205,18 @@ export function EventLocation() {
 
                 {/* Right Side - Map */}
                 <div className="relative lg:order-last order-first">
-                  <div className="relative h-[300px] md:h-[400px] lg:h-full lg:min-h-[450px] rounded-xl md:rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl">
+                  <div className="relative h-[300px] md:h-[400px] lg:h-full lg:min-h-[500px] rounded-xl md:rounded-2xl overflow-hidden border-2 border-white/10 shadow-2xl bg-[#0d1219]">
                     <iframe
                       src={address.embedUrl}
                       width="100%"
                       height="100%"
-                      style={{ border: 0 }}
+                      style={{ border: 0, display: 'block' }}
                       allowFullScreen
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
-                      className="absolute inset-0"
+                      className="absolute inset-0 w-full h-full"
                       title="Localização do Evento - Medicina de Precisão"
                     />
-                    {/* Overlay gradient for style */}
-                    <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-xl md:rounded-2xl"></div>
                   </div>
                 </div>
               </div>

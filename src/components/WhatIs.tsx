@@ -51,7 +51,7 @@ export function WhatIs({ onCTAClick }: WhatIsProps) {
   ]
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-[#0a0f1a] relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-20 bg-[#0a0f1a] relative overflow-visible">
       {/* Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#2563eb]/10 to-transparent rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#3b82f6]/5 to-transparent rounded-full blur-3xl" />
@@ -75,9 +75,7 @@ export function WhatIs({ onCTAClick }: WhatIsProps) {
               O QUE É O MEDICINA DE PRECISÃO
             </h2>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed px-4">
-              O evento que une <span className="text-[#3b82f6] font-semibold">excelência clínica</span>,
-              <span className="text-[#0ea5e9] font-semibold">gestão inteligente</span> e
-              <span className="text-[#f59e0b] font-semibold"> liberdade profissional</span>.
+              O evento que une <span className="text-[#3b82f6] font-semibold">excelência clínica</span>, <span className="text-[#0ea5e9] font-semibold">gestão inteligente</span> e <span className="text-[#f59e0b] font-semibold">liberdade profissional</span>.
             </p>
           </motion.div>
 
