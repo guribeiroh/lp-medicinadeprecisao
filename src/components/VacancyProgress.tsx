@@ -5,15 +5,15 @@ import { Users, Zap } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function VacancyProgress() {
-  const [percentage, setPercentage] = useState(30)
+  const [percentage, setPercentage] = useState(28)
 
   useEffect(() => {
     // Data de início (13 de outubro de 2025)
     const startDate = new Date('2025-10-13')
-    // Data limite com 5 ingressos restantes (18 de dezembro de 2025)
-    const endDate = new Date('2025-12-18')
-    // Data de esgotamento (19 de dezembro de 2025)
-    const soldOutDate = new Date('2025-12-19')
+    // Data limite com poucos ingressos restantes (16 de novembro de 2025)
+    const endDate = new Date('2025-11-16')
+    // Data de esgotamento (17 de novembro de 2025)
+    const soldOutDate = new Date('2025-11-17')
     // Data atual
     const today = new Date()
 
@@ -23,35 +23,35 @@ export function VacancyProgress() {
     soldOutDate.setHours(0, 0, 0, 0)
     today.setHours(0, 0, 0, 0)
 
-    // Se já passou do dia 19 de dezembro, marca como esgotado (100%)
+    // Se já passou do dia 17 de novembro, marca como esgotado (100%)
     if (today >= soldOutDate) {
       setPercentage(100)
       return
     }
 
-    // Se chegou no dia 18 de dezembro, mantém em 90% (5 ingressos restantes)
+    // Se chegou no dia 16 de novembro, mantém em 90% (5 ingressos restantes)
     if (today >= endDate) {
       setPercentage(90)
       return
     }
 
-    // Se ainda não chegou no dia de início, mantém em 30%
+    // Se ainda não chegou no dia de início, mantém em 28% (14 ingressos preenchidos)
     if (today < startDate) {
-      setPercentage(30)
+      setPercentage(28)
       return
     }
 
     // Calcula o total de dias entre início e fim
     const totalDays = Math.floor((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
-    
+
     // Calcula quantos dias se passaram desde o início
     const daysPassed = Math.floor((today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24))
-    
-    // Calcula a porcentagem (de 30% a 90%)
-    const progressRange = 90 - 30 // 60% de variação
+
+    // Calcula a porcentagem (de 28% a 90%)
+    const progressRange = 90 - 28 // 62% de variação
     const dailyIncrease = progressRange / totalDays
-    const currentPercentage = 30 + (dailyIncrease * daysPassed)
-    
+    const currentPercentage = 28 + (dailyIncrease * daysPassed)
+
     setPercentage(Math.min(Math.round(currentPercentage), 90))
   }, [])
 

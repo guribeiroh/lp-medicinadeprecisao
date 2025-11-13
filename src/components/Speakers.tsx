@@ -70,6 +70,14 @@ export function Speakers() {
       specialty: "Unikka Pharma",
       gender: "m",
       bio: "Sócio e Diretor Comercial da Unikka Pharma, empresário com ampla experiência na construção e expansão de negócios na área da saúde.\n\nEspecialista em estratégias de crescimento, posicionamento de marca e desenvolvimento de equipes de alta performance. Ao longo da carreira, tem se destacado por impulsionar o faturamento de grandes empresas, liderando projetos inovadores e sustentáveis que unem visão estratégica, relacionamento sólido com parceiros e foco em resultados."
+    },
+    {
+      name: "Gustavo",
+      image: "/palestrantes/Gustavo.png",
+      title: "Farmacêutico e Bioquímico",
+      specialty: "Medicina de Precisão e Diagnóstico Laboratorial",
+      gender: "m",
+      bio: "Farmacêutico e Bioquímico, Mestre em Biotecnologia pelo Instituto Butantan.\n\nCom mais de 20 anos de experiência em diagnóstico laboratorial, foi CEO de multinacional e hoje é fundador da Inside DX e da healthtech Testfy, que conecta a medicina de precisão à prática clínica, promovendo cuidado personalizado com foco em predição, prevenção e longevidade."
     }
   ];
 
