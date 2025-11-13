@@ -1,9 +1,13 @@
+"use client"
+
 import { Button } from "./ui/button"
 import { Badge } from "./ui/badge"
 import { motion } from "motion/react"
 import { Flame, Users, Clock, MapPin, ArrowRight, Zap } from "lucide-react"
+import { useURLParams } from "@/hooks/useURLParams"
 
 export function FinalCTA() {
+  const { getURLWithParams } = useURLParams()
   return (
     <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
       {/* Animated Background */}
@@ -88,8 +92,8 @@ export function FinalCTA() {
 
               {/* Main CTA */}
               <div className="text-center pt-2 md:pt-4">
-                <a 
-                  href="https://form.spotform.com.br/medicina-de-precisao"
+                <a
+                  href={getURLWithParams("https://form.spotform.com.br/medicina-de-precisao")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >

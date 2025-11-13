@@ -1,22 +1,24 @@
 "use client"
 import { Button } from "./ui/button"
 import { motion } from "motion/react"
-import { 
-  Sparkles, 
-  ArrowRight, 
-  Building2, 
-  Heart, 
-  Microscope, 
-  TrendingUp, 
-  Rocket, 
-  Brain 
+import {
+  Sparkles,
+  ArrowRight,
+  Building2,
+  Heart,
+  Microscope,
+  TrendingUp,
+  Rocket,
+  Brain
 } from "lucide-react"
+import { useURLParams } from "@/hooks/useURLParams"
 
 interface WhatIsProps {
   onCTAClick: () => void
 }
 
 export function WhatIs({ onCTAClick }: WhatIsProps) {
+  const { getURLWithParams } = useURLParams()
   const benefits = [
     {
       title: "Estruturar seu consultório com visão de empresa",
@@ -187,8 +189,8 @@ export function WhatIs({ onCTAClick }: WhatIsProps) {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center px-4"
           >
-            <a 
-              href="https://form.spotform.com.br/medicina-de-precisao"
+            <a
+              href={getURLWithParams("https://form.spotform.com.br/medicina-de-precisao")}
               target="_blank"
               rel="noopener noreferrer"
             >

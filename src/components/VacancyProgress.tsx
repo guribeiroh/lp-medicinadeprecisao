@@ -3,8 +3,10 @@
 import { motion } from "motion/react"
 import { Users, Zap } from "lucide-react"
 import { useEffect, useState } from "react"
+import { useURLParams } from "@/hooks/useURLParams"
 
 export function VacancyProgress() {
+  const { getURLWithParams } = useURLParams()
   const [percentage, setPercentage] = useState(28)
 
   useEffect(() => {
@@ -137,8 +139,8 @@ export function VacancyProgress() {
                 </motion.button>
               </div>
             ) : (
-              <a 
-                href="https://form.spotform.com.br/medicina-de-precisao"
+              <a
+                href={getURLWithParams("https://form.spotform.com.br/medicina-de-precisao")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:block flex-shrink-0"
@@ -167,8 +169,8 @@ export function VacancyProgress() {
               </motion.button>
             </div>
           ) : (
-            <a 
-              href="https://form.spotform.com.br/medicina-de-precisao"
+            <a
+              href={getURLWithParams("https://form.spotform.com.br/medicina-de-precisao")}
               target="_blank"
               rel="noopener noreferrer"
               className="sm:hidden block mt-3 w-full"

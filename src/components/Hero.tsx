@@ -3,12 +3,15 @@
 import { Button } from "./ui/button"
 import { ArrowRight, Calendar, MapPin, CheckCircle2, TrendingUp } from "lucide-react"
 import Image from "next/image"
+import { useURLParams } from "@/hooks/useURLParams"
 
 interface HeroProps {
   onCTAClick: () => void
 }
 
 export function Hero({ onCTAClick }: HeroProps) {
+  const { getURLWithParams } = useURLParams()
+
   const bullets = [
     {
       text: "",
@@ -113,7 +116,7 @@ export function Hero({ onCTAClick }: HeroProps) {
             {/* CTA */}
             <div>
               <a
-                href="https://form.spotform.com.br/medicina-de-precisao"
+                href={getURLWithParams("https://form.spotform.com.br/medicina-de-precisao")}
                 target="_blank"
                 rel="noopener noreferrer"
               >

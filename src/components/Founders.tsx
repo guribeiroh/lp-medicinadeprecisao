@@ -1,8 +1,12 @@
+"use client"
+
 import { motion } from "motion/react";
 import { Award, Instagram, Star } from "lucide-react";
 import Image from "next/image";
+import { useURLParams } from "@/hooks/useURLParams";
 
 export function Founders() {
+  const { getURLWithParams } = useURLParams()
   const founders = [
     { 
       initial: 'A', 
@@ -122,8 +126,8 @@ export function Founders() {
 
                   {/* Social Link */}
                   <div className="flex justify-center">
-                    <a 
-                      href={founder.instagram}
+                    <a
+                      href={getURLWithParams(founder.instagram)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group/btn inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#2563eb] to-[#3b82f6] hover:shadow-lg hover:shadow-[#2563eb]/30 rounded-xl transition-all text-white font-medium"

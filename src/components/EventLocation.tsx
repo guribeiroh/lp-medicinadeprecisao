@@ -1,7 +1,11 @@
+"use client"
+
 import { motion } from "motion/react"
 import { MapPin, Navigation, Building, ExternalLink, Hotel, Car, PersonStanding } from "lucide-react"
+import { useURLParams } from "@/hooks/useURLParams"
 
 export function EventLocation() {
+  const { getURLWithParams } = useURLParams()
   const address = {
     street: "Casa do Storytelling",
     neighborhood: "Alphaville Conde II",
@@ -191,7 +195,7 @@ export function EventLocation() {
                   {/* Call to Action */}
                   <div className="pt-4">
                     <a
-                      href={address.mapUrl}
+                      href={getURLWithParams(address.mapUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group relative inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] hover:from-[#ea580c] hover:to-[#f59e0b] text-white text-sm md:text-base font-semibold rounded-full shadow-xl shadow-[#f59e0b]/30 transition-all duration-300 hover:shadow-[#f59e0b]/50 hover:scale-105 w-full sm:w-auto"
@@ -293,7 +297,7 @@ export function EventLocation() {
 
                     {/* View Button */}
                     <a
-                      href={hotel.mapUrl}
+                      href={getURLWithParams(hotel.mapUrl)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#f59e0b]/50 rounded-lg text-sm text-gray-300 hover:text-white transition-all group-hover:shadow-lg"
