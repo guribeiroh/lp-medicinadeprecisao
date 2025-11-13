@@ -3,98 +3,53 @@ logs
 *.log
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+
+# Diagnostic reports
+report.[0-9]*.json
+
+# Runtime data
+pids
+*.pid
+*.pid.lock
+*.seed
+
+# Coverage and instrumentation
+coverage/
+*.lcov
+.nyc_output/
+lib-cov/
 
 # Dependency directories
 node_modules/
-jspm_packages/
+.pnp/
+.pnp.*
 
-# Production artifacts
-build/
+# Next.js build artifacts
+.next/
+out/
 dist/
-.next/ # For Next.js
+build/
+.turbo/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo
 
 # Misc
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Environment files
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 
-# IDE-specific files
+# IDE settings
 .vscode/
 .idea/
-*.suo
-*.user
-*.bak
-*.orig
-*.swp
-*.swo
-
-# OS generated files
-.classpath
-.project
-.settings/
-.cache/
-Thumbs.db
-ehthumbs.db
-*.stackdump
-
-# Windows files that caused permission errors in git status and other system files
-AppData/
-NTUSER.DAT
-NTUSER.DAT{*}
-Obsidian-1.8.10.exe
-OneDrive/
-Qualquer/
-Saved Games/
-Searches/
-Settings/
-Videos/
-erp-conaes/
-fdf/
-health-management-system/
-precise-med-insight-copy/
-.claude.json
-.claude.json.backup
-.claude/
-.codex/
-.config/
-.cursor/
-.gemini/
-.gitconfig
-.lesshst
-.nanorc
-.node_repl_history
-.ssh/
-.trae-aicc/
-.trae/
-.vscode/
-Contacts/
-CrossDevice/
-Downloads/
-Favorites/
-IntelGraphicsProfiles/
-Links/
-Microsoft/
-Music/
-ntuser.dat.LOG1
-ntuser.dat.LOG2
-ntuser.ini
-package-lock.json
-pnpm-lock.yaml
-Ambiente de Impressão/
-Ambiente de Rede/
-Configurações Locais/
-Cookies/
-Dados de Aplicativos/
-"Documents/Meus Vídeos/"
-"Documents/Minhas Imagens/"
-"Documents/Minhas Músicas/"
-"Menu Iniciar/"
-"Meus Documentos/"
-Modelos/
-Recent/
-SendTo/
