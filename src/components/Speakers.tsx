@@ -17,7 +17,7 @@ export function Speakers() {
     },
     {
       name: "Dr. João Cristofolo",
-      image: "/palestrantes/João Cristofolo.png",
+      image: "/palestrantes/joao.png",
       title: "Médico | Fundador",
       specialty: "Medicina de Precisão",
       gender: "m",

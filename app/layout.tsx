@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import Script from 'next/script'
 import './globals.css'
 
@@ -128,11 +126,87 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
+
+        {/* Structured Data - Event Schema for SEO */}
+        <Script
+          id="structured-data-event"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "Medicina de Precisão - Imersão para Consultórios Médicos",
+              "description": "2 dias intensivos para tirar seu consultório da UTI Financeira. Aprenda a estruturar, conquistar pacientes e organizar a gestão com tecnologias avançadas.",
+              "startDate": "2025-11-20T08:00:00-03:00",
+              "endDate": "2025-11-21T18:00:00-03:00",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "location": {
+                "@type": "Place",
+                "name": "Alphaville Convention Center",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Alphaville",
+                  "addressRegion": "SP",
+                  "addressCountry": "BR"
+                }
+              },
+              "image": [
+                "https://medicinadeprecisao.com.br/hero-background.png"
+              ],
+              "offers": {
+                "@type": "Offer",
+                "url": "https://form.spotform.com.br/medicina-de-precisao",
+                "price": "0",
+                "priceCurrency": "BRL",
+                "availability": "https://schema.org/LimitedAvailability",
+                "validFrom": "2025-01-01T00:00:00-03:00",
+                "inventoryLevel": {
+                  "@type": "QuantitativeValue",
+                  "value": "50"
+                }
+              },
+              "performer": {
+                "@type": "PerformingGroup",
+                "name": "Medicina de Precisão"
+              },
+              "organizer": {
+                "@type": "Organization",
+                "name": "CONAES Brasil",
+                "url": "https://medicinadeprecisao.com.br"
+              }
+            })
+          }}
+        />
+
+        {/* Structured Data - Organization Schema */}
+        <Script
+          id="structured-data-organization"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Medicina de Precisão",
+              "url": "https://medicinadeprecisao.com.br",
+              "logo": "https://medicinadeprecisao.com.br/hero-background.png",
+              "sameAs": [
+                "https://www.facebook.com/medicinadeprecisao",
+                "https://www.instagram.com/medicinadeprecisao"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "Customer Service",
+                "availableLanguage": "Portuguese"
+              }
+            })
+          }}
+        />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         {children}
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   )

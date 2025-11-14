@@ -1,4 +1,4 @@
-// File: D:\DEV\Landing Page Medicina de Precisão\app\layout.tsx
+// File: /Users/jordanvasconcelos/greenbook/lp-medicinadeprecisao/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

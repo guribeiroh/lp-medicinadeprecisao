@@ -8,19 +8,19 @@ export function Testimonials() {
       name: "Dr. Silas",
       quote: "Descobri que liberdade na medicina não é trabalhar menos, é trabalhar com direção. E com direção aumentei o meu faturamento, e programando a expansão para um instituto.",
       rating: 5,
-      image: "/Dr. Silas.jpg"
+      image: "/DrSilas.jpg"
     },
     {
       name: "Dra. Daniely",
       quote: "Tripliquei o meu faturamento, abandonei todos os plantões e hoje foco na expansão do consultório.",
       rating: 5,
-      image: "/Dr. Dani.png"
+      image: "/DrDani.png"
     },
     {
       name: "Dr. Filipi",
       quote: "Ajustei diversas etapas dentro do consultório, focando em ter um maior LTV com os meus pacientes. E hoje já estou programando a expansão de consultório para Clínica.",
       rating: 5,
-      image: "/Dr; Filipi.png"
+      image: "/DrFilipi.png"
     },
     {
       name: "Dra. Camila Callegari",

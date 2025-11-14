@@ -1,0 +1,22 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://medicinadeprecisao.com.br/sitemap.xml
+
+# Disallow private pages
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow crawling of images
+User-agent: Googlebot-Image
+Allow: /
+
+# Allow crawling
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
