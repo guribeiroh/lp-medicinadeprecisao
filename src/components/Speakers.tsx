@@ -72,7 +72,7 @@ export function Speakers() {
       bio: "Sócio e Diretor Comercial da Unikka Pharma, empresário com ampla experiência na construção e expansão de negócios na área da saúde.\n\nEspecialista em estratégias de crescimento, posicionamento de marca e desenvolvimento de equipes de alta performance. Ao longo da carreira, tem se destacado por impulsionar o faturamento de grandes empresas, liderando projetos inovadores e sustentáveis que unem visão estratégica, relacionamento sólido com parceiros e foco em resultados."
     },
     {
-      name: "Gustavo",
+      name: "Gustavo Janaudis",
       image: "/palestrantes/Gustavo.png",
       title: "Farmacêutico e Bioquímico",
       specialty: "Medicina de Precisão e Diagnóstico Laboratorial",
